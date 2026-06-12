@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumentasi Teknis Lengkap - SIMKAB</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ==========================================================================
+           1. DESIGN TOKENS & CORE VARIABLES (Premium Dark-Gold Perbankan)
+           ========================================================================== */
+        :root {
+            --bg-primary: #0f121d;
+            --bg-secondary: #161b2d;
+            --bg-tertiary: #1f263f;
+            --accent-gold: #d4af37;
+            --accent-gold-gradient: linear-gradient(135deg, #f3cf55 0%, #d4af37 50%, #aa8513 100%);
+            --accent-gold-glow: rgba(212, 175, 55, 0.25);
+            --accent-gold-border: rgba(212, 175, 55, 0.2);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --success-bg: rgba(16, 185, 129, 0.1);
+            --error: #ef4444;
+            --error-bg: rgba(239, 68, 68, 0.1);
+            --info: #3b82f6;
+            --info-bg: rgba(59, 130, 246, 0.1);
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 20px;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --sidebar-width: 320px;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            border: 2px solid var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold);
+        }
+
+        /* ==========================================================================
+           2. LAYOUT STRUCTURE
+           ========================================================================== */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--accent-gold-border);
+            padding: 2.5rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .brand-icon {
+            background: var(--accent-gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+        }
+
+        .brand-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+        }
+
+        .brand-text span {
+            color: var(--accent-gold);
+        }
+
+        /* Search Box */
+        .search-container {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--accent-gold-border);
+            border-radius: var(--border-radius-sm);
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            color: #ffffff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 10px var(--accent-gold-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Nav List */
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            font-weight: 700;
+            padding: 0.8rem 0 0.4rem 0.5rem;
+        }
+
+        .nav-item a {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-item a:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.03);
+            padding-left: 1.25rem;
+        }
+
+        .nav-item.active a {
+            color: #ffffff;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.15) 0%, transparent 100%);
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1200px;
+        }
+
+        /* ==========================================================================
+           3. PAGES & CARDS ELEMENTS (Premium Aesthetic)
+           ========================================================================== */
+        header {
+            margin-bottom: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 2rem;
+        }
+
+        .doc-badge {
+            background-color: var(--accent-gold-glow);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff 30%, #e2e8f0 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .meta-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--border-radius-md);
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .meta-card i {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .meta-card div p:first-child {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .meta-card div p:last-child {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* Documentation Section */
+        .doc-section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.03);
+            padding-bottom: 0.8rem;
+        }
+
+        .section-header i {
+            color: var(--accent-gold);
+            font-size: 1.6rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--accent-gold-border);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gold-gradient);
+            opacity: 0.8;
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.08);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Grid Lists */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            background-color: var(--bg-primary);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .feature-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .feature-title-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-title-row i {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        .feature-title-row h4 {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        /* Callouts / Alerts */
+        .callout {
+            background-color: var(--bg-tertiary);
+            border-left: 4px solid var(--accent-gold);
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+            margin: 1.5rem 0;
+        }
+
+        .callout-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .callout.info-callout { border-left-color: var(--info); background-color: var(--info-bg); }
+        .callout.success-callout { border-left-color: var(--success); background-color: var(--success-bg); }
+        .callout.danger-callout { border-left-color: var(--error); background-color: var(--error-bg); }
+
+        /* ==========================================================================
+           4. DATA TABLES (Interactive Collapsible)
+           ========================================================================== */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 1.5rem 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background-color: var(--bg-primary);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 1rem 1.2rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .data-table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-secondary);
+            vertical-align: middle;
+        }
+
+        .data-table tr:hover td {
+            background-color: rgba(255, 255, 255, 0.02);
+            color: #ffffff;
+        }
+
+        .db-table-accordion {
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .db-table-header {
+            background-color: var(--bg-primary);
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            transition: var(--transition-smooth);
+        }
+
+        .db-table-header:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .db-table-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .db-table-title i {
+            color: var(--accent-gold);
+        }
+
+        .db-table-arrow {
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+
+        .db-table-accordion.active .db-table-arrow {
+            transform: rotate(180deg);
+            color: var(--accent-gold);
+        }
+
+        .db-table-body {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: var(--bg-secondary);
+        }
+
+        .db-table-accordion.active .db-table-body {
+            max-height: 1200px;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-pk { background-color: var(--accent-gold-glow); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+        .badge-fk { background-color: var(--info-bg); color: var(--info); border: 1px solid var(--info); }
+        .badge-uk { background-color: rgba(168, 85, 247, 0.15); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.3); }
+
+        .role-badge {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .role-badge.allowed {
+            background-color: var(--success-bg);
+            color: var(--success);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        /* ==========================================================================
+           5. MATH FORMULAS & CODE HIGHLIGHTS
+           ========================================================================== */
+        .formula-box {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--accent-gold-border);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin: 1.5rem 0;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .formula-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Flow Diagrams */
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: var(--bg-primary);
+            padding: 2rem;
+            border-radius: var(--border-radius-md);
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .flow-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent-gold-gradient);
+            color: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            flex-shrink: 0;
+        }
+
+        .flow-content {
+            flex: 1;
+        }
+
+        .flow-content h5 {
+            font-family: 'Outfit', sans-serif;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .flow-content p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================================================
+           6. SEARCH HIGHLIGHTS
+           ========================================================================== */
+        mark {
+            background-color: rgba(212, 175, 55, 0.4);
+            color: #ffffff;
+            border-radius: 2px;
+            padding: 0 2px;
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer span {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    
+    <!-- ==========================================================================
+         SIDEBAR NAVIGATION
+         ========================================================================== -->
+    <aside class="sidebar">
+        <div class="brand">
+            <i class="fa-solid fa-hotel brand-icon"></i>
+            <h1 class="brand-text">SIM<span>KAB</span></h1>
+        </div>
+        
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="doc-search" class="search-input" placeholder="Cari database, peran, fitur...">
+        </div>
+        
+        <nav style="flex: 1; overflow-y: auto;">
+            <ul class="nav-list">
+                <li class="nav-label">Navigasi Utama</li>
+                <li class="nav-item active" data-target="pengenalan"><a href="#pengenalan"><i class="fa-solid fa-circle-info"></i> Pendahuluan</a></li>
+                <li class="nav-item" data-target="peran"><a href="#peran"><i class="fa-solid fa-users-gear"></i> Peran &amp; Otorisasi</a></li>
+                <li class="nav-item" data-target="arsitektur"><a href="#arsitektur"><i class="fa-solid fa-layer-group"></i> Arsitektur Sistem</a></li>
+                
+                <li class="nav-label">Struktur Basis Data</li>
+                <li class="nav-item" data-target="database"><a href="#database"><i class="fa-solid fa-database"></i> Kamus Data SQL</a></li>
+                
+                <li class="nav-label">Logika &amp; Alur Fitur</li>
+                <li class="nav-item" data-target="gps-absensi"><a href="#gps-absensi"><i class="fa-solid fa-location-dot"></i> Absensi Geofencing</a></li>
+                <li class="nav-item" data-target="cuti-logic"><a href="#cuti-logic"><i class="fa-solid fa-calendar-check"></i> Kuota Cuti Otomatis</a></li>
+                <li class="nav-item" data-target="payroll-logic"><a href="#payroll-logic"><i class="fa-solid fa-file-invoice-dollar"></i> Perhitungan Gaji</a></li>
+                <li class="nav-item" data-target="mutasi-logic"><a href="#mutasi-logic"><i class="fa-solid fa-shuffle"></i> Mutasi &amp; Rotasi Gaji</a></li>
+                <li class="nav-item" data-target="acuan-kelompok"><a href="#acuan-kelompok"><i class="fa-solid fa-file-pen"></i> Panduan Tugas Kuliah</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- ==========================================================================
+         MAIN CONTENT AREA
+         ========================================================================== -->
+    <main class="main-content">
+        
+        <!-- Header Dokumen -->
+        <header id="pengenalan">
+            <span class="doc-badge">Dokumen Resmi Kelompok 3</span>
+            <h1 class="main-title">Panduan Teknis Lengkap SIMKAB</h1>
+            <p class="subtitle">Sistem Informasi Manajemen Karyawan Bank terintegrasi E-Absensi GPS Geofencing, Payroll Skala Jabatan Baku, dan Tracking Mutasi Karyawan.</p>
+            
+            <div class="meta-grid">
+                <div class="meta-card">
+                    <i class="fa-solid fa-database"></i>
+                    <div>
+                        <p>Total Tabel</p>
+                        <p>12 Relasional</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <div>
+                        <p>Tingkat Peran</p>
+                        <p>3 Role Internal + 1 Publik</p>
+                    </div>
+                </div>
+                <div class="meta-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <p>Keamanan</p>
+                        <p>PDO SQL-i Safe &amp; Bcrypt</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- No Results Search Message -->
+        <div id="search-empty" class="no-results">
+            <i class="fa-solid fa-folder-open" style="font-size: 3rem; margin-bottom: 1rem; display: block; color: var(--text-muted);"></i>
+            Tidak menemukan dokumentasi untuk kata kunci tersebut. Coba kata kunci lain (misalnya: <strong>absensi, karyawan, gaji, role</strong>).
+        </div>
+
+        <div id="doc-content-wrapper">
+            
+            <!-- BAB 1: PENDAHULUAN -->
+            <section class="doc-section scroll-section" id="sec-pengenalan">
+                <div class="section-header">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <h2 class="section-title">BAB 1: Pendahuluan &amp; Deskripsi Sistem</h2>
+                </div>
+                
+                <div class="card">
+                    <h3>1.1 Latar Belakang Kehadiran SIMKAB</h3>
+                    <p>Dalam industri lembaga keuangan/perbankan, presisi pengelolaan administrasi personalia bersifat krusial. Permasalahan absensi fiktif, ketidaksesuaian penggajian dengan jabatan struktural, lambatnya pengajuan cuti, serta hilangnya berkas mutasi fisik merupakan masalah klasik yang menurunkan efektivitas bisnis bank. <strong>SIMKAB</strong> hadir sebagai solusi otomatisasi tata kelola personalia bank yang aman, transparan, dan real-time.</p>
+                    
+                    <h3>1.2 Tujuan Utama Proyek</h3>
+                    <p>Sistem ini dirancang untuk mencapai standardisasi manajemen data karyawan secara mandiri (Self-Service) dan otomatisasi bisnis dalam satu pintu.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-title-row">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <h4>Akurasi Presisi Kehadiran Harian</h4>
+                            </div>
+                            <p>Memastikan pencatatan kehadiran karyawan bank dilakukan di lokasi riil kantor menggunakan deteksi koordinat GPS dan validasi selfie wajah anti-fraud.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-title-row">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <h4>Otomatisasi Skala Gaji &amp; Tunjangan</h4>
+                            </div>
+                            <p>Mengintegrasikan database jabatan baku secara otomatis dengan nominal penggajian pokok dan tunjangan tanpa intervensi manual (menghindari manipulasi).</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-title-row">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <h4>Rekam Jejak Karir (Audit Trail)</h4>
+                            </div>
+                            <p>Melacak dengan detail riwayat perjalanan karir karyawan dari penempatan pertama, mutasi divisi, promosi kenaikan pangkat, hingga penyesuaian gaji terkait.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 2: ROLES AND AUTHORIZATIONS -->
+            <section class="doc-section scroll-section" id="sec-peran">
+                <div class="section-header">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h2 class="section-title">BAB 2: Pembagian Peran &amp; Hak Akses (Role &amp; Otorisasi)</h2>
+                </div>
+                
+                <div class="card">
+                    <p>Aplikasi SIMKAB menggunakan metode keamanan <strong>RBAC (Role-Based Access Control)</strong>. Hak istimewa sistem dipisah secara tegas berdasarkan fungsionalitas kerja di dunia nyata:</p>
+                    
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Fungsionalitas Fitur</th>
+                                    <th>IT Super Admin</th>
+                                    <th>HRD Manager</th>
+                                    <th>Karyawan Staf</th>
+                                    <th>Pelamar Eksternal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1. Dashboard Analytics</strong></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge">Lihat Milik Sendiri</span></td>
+                                    <td><span class="role-badge">Terkunci</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2. CRUD Karyawan &amp; Rekap Gaji</strong></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge">Lihat Profil Pribadi</span></td>
+                                    <td><span class="role-badge">Terkunci</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3. Evaluasi Kinerja (KPI)</strong></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge">Lihat Nilai Diri</span></td>
+                                    <td><span class="role-badge">Terkunci</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4. Payroll &amp; Cetak Slip</strong></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge">Cetak Slip PDF</span></td>
+                                    <td><span class="role-badge">Terkunci</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5. Approval Cuti Kehadiran</strong></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge allowed">Verifikasi &amp; Setujui</span></td>
+                                    <td><span class="role-badge">Kirim Pengajuan Cuti</span></td>
+                                    <td><span class="role-badge">Terkunci</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>6. E-Absensi GPS &amp; Foto</strong></td>
+                                    <td><span class="role-badge allowed">Pantau Log</span></td>
+                                    <td><span class="role-badge allowed">Pantau Log</span></td>
+                                    <td><span class="role-badge allowed">Check-In / Out Harian</span></td>
+                                    <td><span class="role-badge">Terkunci</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>7. Input Mutasi &amp; Rotasi</strong></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge allowed">Eksekusi Mutasi</span></td>
+                                    <td><span class="role-badge">Lihat Log Sendiri</span></td>
+                                    <td><span class="role-badge">Terkunci</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>8. Pendaftaran Lowongan Karir</strong></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge allowed">Full Access</span></td>
+                                    <td><span class="role-badge">Terkunci</span></td>
+                                    <td><span class="role-badge allowed">Daftar / Upload CV</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="callout info-callout">
+                        <div class="callout-title"><i class="fa-solid fa-key"></i> Informasi Keamanan Sesi</div>
+                        <p>Otorisasi ini divalidasi ganda. Selain pengecekan tampilan di JavaScript (Frontend), berkas <code>api.php</code> di sisi server divalidasi menggunakan pemeriksaan variabel <code>$_SESSION['role']</code> sebelum memproses query database sensitif.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 3: ARSITEKTUR TEKNOLOGI -->
+            <section class="doc-section scroll-section" id="sec-arsitektur">
+                <div class="section-header">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h2 class="section-title">BAB 3: Arsitektur Sistem &amp; Struktur Berkas</h2>
+                </div>
+                
+                <div class="card">
+                    <p>Sistem SIMKAB mengadopsi model <strong>Modular Single-Page Application (SPA)</strong>. Konsep ini memuat seluruh antarmuka pada satu halaman fisik induk, sedangkan navigasi sub-tab dimuat secara instan melalui Vanilla JavaScript dinamis tanpa pemuatan ulang (refresh) halaman secara penuh.</p>
+                    
+                    <h3>3.1 File Utama &amp; Struktur Hubungan</h3>
+                    <div class="flow-container">
+                        <div class="flow-step">
+                            <div class="flow-num">1</div>
+                            <div class="flow-content">
+                                <h5>index.php (Shell Induk SPA)</h5>
+                                <p>Berperan sebagai wadah utama halaman. Memuat sidebar navigasi perbankan, memanggil berkas CSS, pustaka JS, dan merender potongan menu modular secara asinkron.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-num">2</div>
+                            <div class="flow-content">
+                                <h5>api.php (Gateway Kontrol Tunggal)</h5>
+                                <p>Mengontrol seluruh pertukaran data ke database. Menerima request AJAX Fetch dari browser dan menyuplai respon balik terstruktur dalam format <strong>JSON</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-num">3</div>
+                            <div class="flow-content">
+                                <h5>assets/js/app.js (Logika Frontend)</h5>
+                                <p>Mengendalikan interaksi pengguna, penghitungan jarak GPS Geofencing, pemindaian kamera selfie, konversi gambar ke Base64, pengelolaan state UI, serta eksekusi cetak slip PDF.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-num">4</div>
+                            <div class="flow-content">
+                                <h5>modules/ (Modul Halaman Parsial)</h5>
+                                <p>Berisi 10 berkas tampilan antarmuka terpisah (dashboard.php, karyawan.php, mutasi.php, dsb.) yang disisipkan dinamis ke dalam halaman utama.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 4: KAMUS DATA SQL -->
+            <section class="doc-section scroll-section" id="sec-database">
+                <div class="section-header">
+                    <i class="fa-solid fa-database"></i>
+                    <h2 class="section-title">BAB 4: Struktur Basis Data &amp; Kamus Data Fisik</h2>
+                </div>
+                
+                <div class="card">
+                    <p>Basis data relasional menggunakan nama <code>db_simkab</code> yang terdiri dari 12 tabel terintegrasi dengan status integritas kunci asing (*foreign key*) bermode <code>ON DELETE CASCADE</code> pada data master pegawai <code>karyawan(id)</code>.</p>
+                    
+                    <!-- Accordion Tabel 1: karyawan -->
+                    <div class="db-table-accordion">
+                        <div class="db-table-header" onclick="toggleAccordion(this)">
+                            <span class="db-table-title"><i class="fa-solid fa-table"></i> 1. Tabel: karyawan</span>
+                            <i class="fa-solid fa-chevron-down db-table-arrow"></i>
+                        </div>
+                        <div class="db-table-body">
+                            <p>Menyimpan data master identitas diri, divisi kerja, jabatan aktif, gaji dinamis hasil sinkronisasi jabatan standar, dan sisa jatah cuti karyawan bank.</p>
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Field</th>
+                                            <th>Tipe Data</th>
+                                            <th>Atribut Kunci</th>
+                                            <th>Keterangan Deskripsi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>id</strong></td>
+                                            <td>VARCHAR(10)</td>
+                                            <td><span class="badge badge-pk">Primary Key</span></td>
+                                            <td>ID Unik Pegawai (contoh: <code>EMP001</code>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>nip</strong></td>
+                                            <td>VARCHAR(25)</td>
+                                            <td><span class="badge badge-uk">Unique Key</span></td>
+                                            <td>Nomor Induk Pegawai unik nasional</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>nama</strong></td>
+                                            <td>VARCHAR(100)</td>
+                                            <td>-</td>
+                                            <td>Nama lengkap karyawan</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>email</strong></td>
+                                            <td>VARCHAR(100)</td>
+                                            <td>-</td>
+                                            <td>Email resmi kantor karyawan</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>telepon</strong></td>
+                                            <td>VARCHAR(20)</td>
+                                            <td>-</td>
+                                            <td>No handphone/WhatsApp aktif</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>divisi</strong></td>
+                                            <td>VARCHAR(50)</td>
+                                            <td>-</td>
+                                            <td>Nama divisi kerja penempatan aktif</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>jabatan</strong></td>
+                                            <td>VARCHAR(100)</td>
+                                            <td>-</td>
+                                            <td>Jabatan struktural resmi pegawai</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>gaji_pokok</strong></td>
+                                            <td>DECIMAL(15,2)</td>
+                                            <td>-</td>
+                                            <td>Gaji pokok bulanan (auto-sync jabatan)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>tunjangan</strong></td>
+                                            <td>DECIMAL(15,2)</td>
+                                            <td>-</td>
+                                            <td>Tunjangan operasional (auto-sync jabatan)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>sisa_cuti</strong></td>
+                                            <td>INT</td>
+                                            <td>-</td>
+                                            <td>Sisa jatah cuti tahunan (default awal 12)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Tabel 2: standar_jabatan -->
+                    <div class="db-table-accordion">
+                        <div class="db-table-header" onclick="toggleAccordion(this)">
+                            <span class="db-table-title"><i class="fa-solid fa-table"></i> 2. Tabel: standar_jabatan</span>
+                            <i class="fa-solid fa-chevron-down db-table-arrow"></i>
+                        </div>
+                        <div class="db-table-body">
+                            <p>Tabel acuan tunggal skala gaji dan tunjangan untuk 17 tingkatan jabatan perbankan yang dibagi rata pada 4 Divisi utama bank.</p>
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Field</th>
+                                            <th>Tipe Data</th>
+                                            <th>Atribut Kunci</th>
+                                            <th>Keterangan Deskripsi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>id</strong></td>
+                                            <td>INT</td>
+                                            <td><span class="badge badge-pk">Primary Key</span></td>
+                                            <td>ID Otomatis increment acuan jabatan</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>divisi</strong></td>
+                                            <td>VARCHAR(50)</td>
+                                            <td>-</td>
+                                            <td>Divisi penempatan (IT, Kredit, HRD, Operasional)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>nama_jabatan</strong></td>
+                                            <td>VARCHAR(100)</td>
+                                            <td>-</td>
+                                            <td>Nama jabatan resmi (misal: <code>Lead Developer</code>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>grade</strong></td>
+                                            <td>VARCHAR(10)</td>
+                                            <td>-</td>
+                                            <td>Tingkatan pangkat (Grade 1 s.d Grade 4)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>gaji_pokok</strong></td>
+                                            <td>DECIMAL(15,2)</td>
+                                            <td>-</td>
+                                            <td>Nominal standar gaji pokok bulanan</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>tunjangan</strong></td>
+                                            <td>DECIMAL(15,2)</td>
+                                            <td>-</td>
+                                            <td>Nominal standar tunjangan bulanan</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Tabel 3: absensi -->
+                    <div class="db-table-accordion">
+                        <div class="db-table-header" onclick="toggleAccordion(this)">
+                            <span class="db-table-title"><i class="fa-solid fa-table"></i> 3. Tabel: absensi</span>
+                            <i class="fa-solid fa-chevron-down db-table-arrow"></i>
+                        </div>
+                        <div class="db-table-body">
+                            <p>Mencatat kehadiran harian, waktu jam check-in/out, string gambar base64 swafoto selfie, serta koordinat GPS saat presensi disubmit.</p>
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Field</th>
+                                            <th>Tipe Data</th>
+                                            <th>Atribut Kunci</th>
+                                            <th>Keterangan Deskripsi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>id</strong></td>
+                                            <td>VARCHAR(10)</td>
+                                            <td><span class="badge badge-pk">Primary Key</span></td>
+                                            <td>ID Absensi unik (contoh: <code>ABS001</code>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>id_karyawan</strong></td>
+                                            <td>VARCHAR(10)</td>
+                                            <td><span class="badge badge-fk">Foreign Key</span></td>
+                                            <td>Tautan relasi ke tabel <code>karyawan(id)</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>tanggal</strong></td>
+                                            <td>DATE</td>
+                                            <td>-</td>
+                                            <td>Tanggal hari kerja presensi</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>jam_masuk</strong></td>
+                                            <td>TIME</td>
+                                            <td>-</td>
+                                            <td>Waktu jam presensi masuk karyawan disubmit</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>jam_keluar</strong></td>
+                                            <td>TIME</td>
+                                            <td>-</td>
+                                            <td>Waktu jam presensi pulang karyawan disubmit</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>foto_masuk</strong></td>
+                                            <td>LONGTEXT</td>
+                                            <td>-</td>
+                                            <td>Gambar base64 selfie swafoto masuk</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>lokasi_masuk</strong></td>
+                                            <td>VARCHAR(100)</td>
+                                            <td>-</td>
+                                            <td>Koordinat GPS saat masuk (Lat, Lon)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordion Tabel 4: mutasi -->
+                    <div class="db-table-accordion">
+                        <div class="db-table-header" onclick="toggleAccordion(this)">
+                            <span class="db-table-title"><i class="fa-solid fa-table"></i> 4. Tabel: mutasi</span>
+                            <i class="fa-solid fa-chevron-down db-table-arrow"></i>
+                        </div>
+                        <div class="db-table-body">
+                            <p>Melacak riwayat perpindahan karir karyawan, perpindahan antardivisi, promosi kenaikan pangkat, atau demosi staf.</p>
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Field</th>
+                                            <th>Tipe Data</th>
+                                            <th>Atribut Kunci</th>
+                                            <th>Keterangan Deskripsi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>id</strong></td>
+                                            <td>VARCHAR(10)</td>
+                                            <td><span class="badge badge-pk">Primary Key</span></td>
+                                            <td>ID unik transaksi mutasi (contoh: <code>MUT001</code>)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>id_karyawan</strong></td>
+                                            <td>VARCHAR(10)</td>
+                                            <td><span class="badge badge-fk">Foreign Key</span></td>
+                                            <td>Tautan relasi ke tabel <code>karyawan(id)</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>jenis</strong></td>
+                                            <td>VARCHAR(20)</td>
+                                            <td>-</td>
+                                            <td>Kategori karir ('Promosi', 'Mutasi', 'Demosi')</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>divisi_lama</strong></td>
+                                            <td>VARCHAR(50)</td>
+                                            <td>-</td>
+                                            <td>Divisi lama sebelum terjadinya perpindahan</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>divisi_baru</strong></td>
+                                            <td>VARCHAR(50)</td>
+                                            <td>-</td>
+                                            <td>Divisi baru yang dituju setelah mutasi</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>jabatan_lama</strong></td>
+                                            <td>VARCHAR(100)</td>
+                                            <td>-</td>
+                                            <td>Jabatan lama sebelum terjadinya perpindahan</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>jabatan_baru</strong></td>
+                                            <td>VARCHAR(100)</td>
+                                            <td>-</td>
+                                            <td>Jabatan baru yang disandang setelah mutasi</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>tanggal</strong></td>
+                                            <td>DATE</td>
+                                            <td>-</td>
+                                            <td>Tanggal resmi keputusan mutasi berlaku</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 5: ABSENSI GEOFENCING -->
+            <section class="doc-section scroll-section" id="sec-gps-absensi">
+                <div class="section-header">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h2 class="section-title">Fitur E-Absensi: GPS Geofencing &amp; Haversine Formula</h2>
+                </div>
+                
+                <div class="card">
+                    <p>Sistem E-Absensi SIMKAB mewajibkan verifikasi lokasi fisik karyawan bank sebelum melakukan presensi harian untuk menghindari pemalsuan koordinat.</p>
+                    
+                    <h3>Batas Koordinat Geofencing Kantor:</h3>
+                    <ul>
+                        <li><strong>Latitude Acuan (Kantor Pusat):</strong> <code>-4.0113509</code></li>
+                        <li><strong>Longitude Acuan (Kantor Pusat):</strong> <code>122.5177928</code></li>
+                        <li><strong>Radius Toleransi Maksimum:</strong> <code>500 Meter</code></li>
+                    </ul>
+                    
+                    <div class="formula-box">
+                        <div class="formula-label">Algoritma Haversine (Penyusunan Jarak Geografis)</div>
+                        d = 2R · arcsin( √( sin²(Δlat/2) + cos(lat₁) · cos(lat₂) · sin²(Δlon/2) ) )
+                    </div>
+                    
+                    <p>JavaScript menghitung jarak linear terpendek <code>d</code> bumi bulat secara real-time. Jika <code>d &lt;= 500</code> meter, status absensi menjadi <strong>Dalam Jangkauan</strong> dan karyawan dipersilakan melakukan Check-In. Jika melebihi batas, tombol terkunci otomatis.</p>
+                    
+                    <h3 style="margin-top: 1.5rem; margin-bottom: 0.8rem;">Aturan Batas Waktu &amp; Keterlambatan Absensi (Lateness Rules):</h3>
+                    <p>Sistem backend secara otomatis memproses status kehadiran karyawan saat *Check In* berdasarkan zona waktu setempat (WITA / <code>Asia/Makassar</code>) dengan pembagian toleransi berikut:</p>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori Waktu Check-In</th>
+                                    <th>Status Kehadiran</th>
+                                    <th>Keterangan / Tindakan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>00:00:00 s.d 08:00:00 pagi</strong></td>
+                                    <td><span class="role-badge allowed">Hadir</span></td>
+                                    <td>Tepat waktu, tidak dikenakan denda atau sanksi keterlambatan.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>08:00:01 s.d 09:00:00 pagi</strong></td>
+                                    <td><span class="role-badge" style="background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);">Terlambat</span></td>
+                                    <td>Dikenakan status terlambat dan denda potongan sesuai kebijakan HRD.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Di atas 09:00:00 pagi</strong></td>
+                                    <td><span class="role-badge" style="background-color: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);">Tidak Hadir</span></td>
+                                    <td>Dianggap Alfa / Mangkir kerja, otomatis dicatat merah sebagai tidak hadir.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Demo Bypass (Khusus <code>akun.demo</code>)</strong></td>
+                                    <td><span class="role-badge allowed">Hadir</span></td>
+                                    <td>Bypass instan untuk semua aturan waktu &amp; GPS demi kelancaran demo presentasi.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 6: KUOTA CUTI -->
+            <section class="doc-section scroll-section" id="sec-cuti-logic">
+                <div class="section-header">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h2 class="section-title">Fitur Cuti Karyawan: Kuota Cuti Otomatis</h2>
+                </div>
+                
+                <div class="card">
+                    <p>Hak sisa jatah libur cuti tahunan dikelola secara ketat dan diproses otomatis oleh database untuk meminimalisasi ketidaksesuaian administrasi.</p>
+                    
+                    <div class="flow-container">
+                        <div class="flow-step">
+                            <div class="flow-num">A</div>
+                            <div class="flow-content">
+                                <h5>Pengajuan Durasi Hari</h5>
+                                <p>Sistem menghitung durasi: <code>(Tanggal Selesai - Tanggal Mulai) + 1</code>. Jika durasi melebihi kuota <code>sisa_cuti</code> karyawan, form ditolak otomatis di sisi klien.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-num">B</div>
+                            <div class="flow-content">
+                                <h5>HRD Otorisasi / Approval</h5>
+                                <p>HRD masuk ke dasbor dan memverifikasi pengajuan cuti berstatus <code>Pending</code>. HRD berhak menyetujui atau menolak permohonan tersebut.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-num">C</div>
+                            <div class="flow-content">
+                                <h5>Pemotongan Saldo Cuti di Database</h5>
+                                <p>Jika disetujui, backend memotong kuota: <code>sisa_cuti = sisa_cuti - durasi_hari</code> di tabel <code>karyawan</code> lewat transaksi aman database SQL.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 7: PERHITUNGAN GAJI -->
+            <section class="doc-section scroll-section" id="sec-payroll-logic">
+                <div class="section-header">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <h2 class="section-title">Fitur Penggajian: Formulasi Slip Gaji (Take Home Pay)</h2>
+                </div>
+                
+                <div class="card">
+                    <p>Kalkulasi gaji bersih bulanan karyawan perbankan ditarik secara dinamis dari profil karyawan dan disintesis dengan variabel denda absensi serta bonus kinerja.</p>
+                    
+                    <div class="formula-box">
+                        <div class="formula-label">Formulasi Take Home Pay (Gaji Bersih)</div>
+                        Take Home Pay = Gaji Pokok + Tunjangan Jabatan + Bonus Kinerja - Denda Potongan
+                    </div>
+                    
+                    <p>Rincian penghasilan ini tersimpan permanen di tabel <code>payroll</code> bulanan. Pegawai yang bersangkutan dapat mengakses sub-tab Payroll untuk mengunduh berkas fisik slip gaji digital berformat PDF eksklusif secara instan.</p>
+                </div>
+            </section>
+
+            <!-- BAB 8: MUTASI DAN ROTASI -->
+            <section class="doc-section scroll-section" id="sec-mutasi-logic">
+                <div class="section-header">
+                    <i class="fa-solid fa-shuffle"></i>
+                    <h2 class="section-title">Fitur Mutasi &amp; Rotasi: Penyesuaian Jabatan &amp; Gaji Otomatis</h2>
+                </div>
+                
+                <div class="card">
+                    <p>Guna menghindari manipulasi nominal penggajian secara manual oleh oknum tidak bertanggung jawab, sistem SIMKAB menerapkan pembaruan gaji dinamis berbasis kueri standar jabatan saat mutasi terjadi.</p>
+                    
+                    <div class="callout success-callout">
+                        <div class="callout-title"><i class="fa-solid fa-circle-nodes"></i> Mekanisme Sinkronisasi Gaji Mutasi</div>
+                        <p>Ketika HRD mengajukan rotasi pegawai ke divisi baru dan jabatan struktural baru melalui form mutasi, sistem backend <code>api.php</code> akan memicu kueri pencarian gaji standar untuk pasangan divisi dan jabatan baru tersebut di tabel <code>standar_jabatan</code>.</p>
+                        <p>Setelah mendapatkan data tersebut, sistem melakukan query <code>UPDATE</code> secara atomik dalam satu transaksi untuk memperbarui kolom <code>divisi</code>, <code>jabatan</code>, <code>gaji_pokok</code>, dan <code>tunjangan</code> karyawan tersebut di tabel utama <code>karyawan</code> secara instan.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAB 9: ACUAN TUGAS KELOMPOK -->
+            <section class="doc-section scroll-section" id="sec-acuan-kelompok">
+                <div class="section-header">
+                    <i class="fa-solid fa-file-pen"></i>
+                    <h2 class="section-title">Panduan Acuan Tugas Kelompok (Visio, UML, Figma &amp; Word)</h2>
+                </div>
+                
+                <div class="card">
+                    <p>Agar seluruh luaran pengerjaan tugas kelompok 3 RPL konsisten dan bernilai maksimal, pastikan dokumen penunjang dibuat berdasarkan keselarasan data program di atas:</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-title-row">
+                                <i class="fa-solid fa-draw-polygon"></i>
+                                <h4>Visio Context &amp; DFD Diagrams</h4>
+                            </div>
+                            <p>Context Diagram wajib menggambarkan 4 entitas luar utama. DFD Level 1 wajib menampilkan pengolahan data ke dalam 12 tabel basis data yang didefinisikan pada Kamus Data Bab 4.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-title-row">
+                                <i class="fa-solid fa-diagram-project"></i>
+                                <h4>UML Class Diagram</h4>
+                            </div>
+                            <p>Gambarkan atribut class dengan penamaan dan tipe data persis seperti yang tertulis pada Kamus Data Tabel Fisik. Buat relasi asosiasi multi-relasional ke tabel utama karyawan.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-title-row">
+                                <i class="fa-solid fa-palette"></i>
+                                <h4>Desain Mockup Figma</h4>
+                            </div>
+                            <p>Wajib menggunakan palet warna dasar gelap <code>#0f121d</code> dengan aksen kilau emas perbankan premium <code>#d4af37</code> agar selaras dan memukau saat dipresentasikan.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Dokumen Panduan Teknis &amp; Spesifikasi Resmi SIMKAB - Kelompok 3 RPL &copy; 2026.</p>
+            <p>Disusun oleh Asisten AI: <span>Antigravity</span></p>
+        </footer>
+
+    </main>
+</div>
+
+<!-- ==========================================================================
+     INTERACTIVE JAVASCRIPT FOR ACCORDION & SEARCH
+     ========================================================================== -->
+<script>
+    // Accordion Toggle
+    function toggleAccordion(header) {
+        const accordion = header.parentElement;
+        const body = accordion.querySelector('.db-table-body');
+        
+        // Toggle Active Class
+        accordion.classList.toggle('active');
+        
+        if (accordion.classList.contains('active')) {
+            body.style.maxHeight = body.scrollHeight + "px";
+        } else {
+            body.style.maxHeight = 0;
+        }
+    }
+
+    // Active Sidebar Link on Scroll
+    const sections = document.querySelectorAll('.scroll-section');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 200)) {
+                current = section.getAttribute('id').replace('sec-', '');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-target') === current) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Real-time Search & Filter System
+    const searchInput = document.getElementById('doc-search');
+    const emptyState = document.getElementById('search-empty');
+    const contentWrapper = document.getElementById('doc-content-wrapper');
+
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.card, .db-table-accordion, .feature-item');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            if (text.includes(query)) {
+                card.style.display = '';
+                visibleCount++;
+                
+                // If it is inside an accordion and matched, auto-open it!
+                if (card.classList.contains('db-table-accordion') && query.length > 2) {
+                    card.classList.add('active');
+                    const body = card.querySelector('.db-table-body');
+                    body.style.maxHeight = body.scrollHeight + "px";
+                }
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Toggle Empty State Message
+        if (visibleCount === 0) {
+            emptyState.style.display = 'block';
+            contentWrapper.style.opacity = '0.3';
+        } else {
+            emptyState.style.display = 'none';
+            contentWrapper.style.opacity = '1';
+        }
+
+        // Reset if search is empty
+        if (query === '') {
+            cards.forEach(card => {
+                card.style.display = '';
+                if (card.classList.contains('db-table-accordion')) {
+                    card.classList.remove('active');
+                    const body = card.querySelector('.db-table-body');
+                    body.style.maxHeight = '0px';
+                }
+            });
+            contentWrapper.style.opacity = '1';
+        }
+    });
+</script>
+
+</body>
+</html>
