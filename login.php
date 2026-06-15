@@ -264,48 +264,53 @@ if (isset($_SESSION['user_id'])) {
 </head>
 <body>
 
-    <div class="login-container">
-        <!-- Area Kiri: Branding -->
-        <div class="brand-section">
-            <a href="landing.php" class="back-link">
-                <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
-            </a>
-            <div class="brand-logo">
-                <i class="fa-solid fa-lock"></i>
-            </div>
-            <h1 class="brand-title">Autentikasi Aman</h1>
-            <p class="brand-subtitle">Silakan masuk menggunakan kredensial SIMKAB Anda untuk mengakses layanan manajemen terpadu.</p>
-        </div>
+    <!-- Background Layers -->
+    <div class="bg-layer active" id="bg-1" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80');"></div>
+    <div class="bg-layer" id="bg-2" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32f7?auto=format&fit=crop&q=80');"></div>
+    <div class="bg-layer" id="bg-3" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80');"></div>
 
-        <!-- Area Kanan: Form -->
-        <div class="form-section">
-            <h2 class="form-title">Login</h2>
-            <p class="form-subtitle">Sesi Anda dilindungi oleh enkripsi ujung-ke-ujung.</p>
+    <a href="landing.php" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+    </a>
+
+    <div class="login-container" style="max-width: 440px; flex-direction: column; text-align: center; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
+        
+        <div class="form-section" style="padding: 50px 40px; background: var(--bg-card-solid); width: 100%;">
+            
+            <!-- Logo & Greeting -->
+            <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <div style="width: 70px; height: 70px; background: var(--primary-glow); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: inset 0 0 0 2px var(--primary);">
+                    <i class="fa-solid fa-building-user"></i>
+                </div>
+            </div>
+            
+            <h1 style="font-size: 26px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">Selamat Datang!</h1>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 35px; line-height: 1.5;">Silakan masuk menggunakan username dan password Anda untuk mengakses sistem SIMKAB.</p>
 
             <div class="alert-box" id="error-alert">
                 <i class="fa-solid fa-circle-exclamation"></i>
                 <span id="error-msg">Kredensial tidak valid.</span>
             </div>
 
-            <form id="login-form">
+            <form id="login-form" style="text-align: left;">
                 <div class="input-group">
                     <label class="input-label" for="username">Username</label>
-                    <input type="text" id="username" name="username" class="clean-input" placeholder="Contoh: admin" required>
+                    <input type="text" id="username" name="username" class="clean-input" placeholder="Masukkan username Anda" required>
                 </div>
                 
                 <div class="input-group">
                     <label class="input-label" for="password">Kata Sandi</label>
-                    <input type="password" id="password" name="password" class="clean-input" placeholder="Masukkan kata sandi" required>
+                    <input type="password" id="password" name="password" class="clean-input" placeholder="Masukkan kata sandi Anda" required>
                 </div>
 
-                <button type="submit" class="btn-primary" id="submit-btn">
+                <button type="submit" class="btn-primary" id="submit-btn" style="width: 100%; margin-top: 10px; font-size: 15px; padding: 14px; border-radius: 10px;">
                     Masuk ke Sistem
                 </button>
             </form>
 
             <div class="demo-section">
-                <div class="demo-title">Pilih Akun Demo (Otomatis Isi)</div>
-                <div class="demo-tags">
+                <div class="demo-title">Login Cepat (Akun Demo)</div>
+                <div class="demo-tags" style="justify-content: center;">
                     <button type="button" class="demo-tag" data-u="admin" data-p="admin123">Admin</button>
                     <button type="button" class="demo-tag" data-u="budi.darmawan" data-p="hrd123">HRD</button>
                     <button type="button" class="demo-tag" data-u="rizka.amanda" data-p="karyawan123">Pegawai</button>
