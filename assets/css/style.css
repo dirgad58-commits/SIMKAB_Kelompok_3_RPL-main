@@ -38,9 +38,9 @@
     --border-glow: rgba(37, 99, 235, 0.2);
     
     /* Layout & Shadows (Sharp & Clean) */
-    --sidebar-width: 280px;
-    --sidebar-collapsed-width: 80px;
-    --header-height: 80px;
+    --sidebar-width: 230px;
+    --sidebar-collapsed-width: 70px;
+    --header-height: 70px;
     --border-radius-lg: 16px;
     --border-radius-md: 10px;
     --border-radius-sm: 6px;
@@ -105,6 +105,7 @@ body {
     flex-direction: column;
     position: relative;
     z-index: 0;
+    zoom: 0.85;
 }
 
 /* Premium Geometric Dot-Grid & Floating Parallax Ambient Lights */
@@ -118,13 +119,7 @@ body::before, body::after {
 
 /* Radial dot-grid texture overlay */
 body::before {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(var(--border-color) 1.2px, transparent 1.2px);
-    background-size: 24px 24px;
-    opacity: 0.35;
+    display: none;
 }
 
 /* Floating upper left ambient light blob */
@@ -199,13 +194,16 @@ body::after {
 .sidebar {
     width: var(--sidebar-width);
     background-color: var(--sidebar-bg);
-    border-right: 1px solid var(--border-color);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 0 20px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 16px;
+    left: 16px;
+    bottom: 16px;
     z-index: 100;
     transition: var(--transition-smooth);
 }
@@ -232,21 +230,21 @@ body::after {
 }
 
 .logo-icon {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    border-radius: var(--border-radius-md);
+    border-radius: var(--border-radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     font-weight: 800;
-    font-size: 20px;
+    font-size: 16px;
     box-shadow: 0 4px 15px rgba(79, 70, 229, 0.2);
 }
 
 .logo-text {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 800;
     letter-spacing: 0.5px;
     background: linear-gradient(to right, var(--text-primary), var(--primary-light));
@@ -277,13 +275,13 @@ body::after {
 .menu-item {
     display: flex;
     align-items: center;
-    padding: 12px 16px;
+    padding: 10px 14px;
     color: var(--text-secondary);
     text-decoration: none;
     border-radius: var(--border-radius-md);
-    gap: 14px;
-    font-size: 14px;
-    font-weight: 500;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 600;
     transition: var(--transition-smooth);
     cursor: pointer;
     white-space: nowrap;
@@ -291,8 +289,8 @@ body::after {
 }
 
 .menu-item i {
-    font-size: 18px;
-    width: 24px;
+    font-size: 16px;
+    width: 20px;
     text-align: center;
     transition: var(--transition-smooth);
 }
@@ -329,32 +327,41 @@ body::after {
 
 /* Sidebar Footer (User Info & Collapse Trigger) */
 .sidebar-footer {
-    padding: 16px;
+    padding: 20px 20px;
     border-top: 1px solid var(--border-color);
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar.collapsed .sidebar-footer {
     flex-direction: column;
-    gap: 12px;
+    padding: 20px 0;
+    gap: 16px;
+    justify-content: center;
 }
 
 .user-profile {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     overflow: hidden;
     white-space: nowrap;
 }
 
 .user-avatar {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     background-color: var(--border-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 12px;
     color: var(--primary-light);
-    border: 2px solid var(--primary);
+    border: 1px solid var(--primary);
 }
 
 .user-info {
@@ -370,7 +377,7 @@ body::after {
 }
 
 .user-name {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: var(--text-primary);
 }
@@ -382,8 +389,8 @@ body::after {
 
 /* Collapse Toggle Button */
 .collapse-btn {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
+    background: transparent;
+    border: none;
     color: var(--text-secondary);
     padding: 8px;
     border-radius: var(--border-radius-sm);
@@ -395,13 +402,13 @@ body::after {
 }
 
 .collapse-btn:hover {
-    color: var(--primary-light);
-    background-color: var(--bg-card-hover);
+    color: var(--primary);
+    background-color: var(--primary-glow);
 }
 
 /* Main Content Area */
 .main-content {
-    margin-left: var(--sidebar-width);
+    margin-left: calc(var(--sidebar-width) + 32px);
     flex: 1;
     min-width: 0; /* PENTING: Mencegah elemen anak (flex child) melebar melampaui layar */
     min-height: 100vh;
@@ -411,21 +418,23 @@ body::after {
 }
 
 .sidebar.collapsed ~ .main-content {
-    margin-left: var(--sidebar-collapsed-width);
+    margin-left: calc(var(--sidebar-collapsed-width) + 32px);
 }
 
 /* Header */
 .main-header {
     height: var(--header-height);
     background-color: var(--bg-card);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-color);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 24px;
     position: sticky;
-    top: 0;
+    top: 16px;
+    margin: 16px 16px 16px 0;
     z-index: 99;
 }
 
@@ -448,16 +457,18 @@ body::after {
 }
 
 .system-badge {
-    background: rgba(217, 119, 6, 0.1);
-    color: var(--primary-light);
-    border: 1px solid rgba(217, 119, 6, 0.3);
-    padding: 6px 14px;
+    background: var(--warning-light);
+    color: var(--warning-dark);
+    height: 40px;
+    padding: 0 20px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .system-badge i {
@@ -474,11 +485,11 @@ body::after {
 
 /* Content Container */
 .content-body {
-    padding: 40px;
+    padding: 8px 16px 24px 0;
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     overflow-x: auto; /* PENTING: Mengizinkan scrolling horizontal khusus di dalam area konten tanpa merusak sidebar */
 }
 
@@ -514,19 +525,17 @@ body::after {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
-    padding: 24px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
-    background-image: linear-gradient(135deg, rgba(79, 70, 229, 0.018) 25%, transparent 25%, transparent 50%, rgba(79, 70, 229, 0.018) 50%, rgba(79, 70, 229, 0.018) 75%, transparent 75%, transparent);
-    background-size: 24px 24px;
 }
 
 [data-theme="dark"] .stat-card {
-    background-image: linear-gradient(135deg, rgba(99, 102, 241, 0.015) 25%, transparent 25%, transparent 50%, rgba(99, 102, 241, 0.015) 50%, rgba(99, 102, 241, 0.015) 75%, transparent 75%, transparent);
+    
 }
 
 .stat-card::before {
@@ -617,19 +626,17 @@ body::after {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
-    padding: 24px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     box-shadow: var(--shadow-soft);
     position: relative;
     overflow: hidden;
-    background-image: linear-gradient(135deg, rgba(79, 70, 229, 0.018) 25%, transparent 25%, transparent 50%, rgba(79, 70, 229, 0.018) 50%, rgba(79, 70, 229, 0.018) 75%, transparent 75%, transparent);
-    background-size: 24px 24px;
 }
 
 [data-theme="dark"] .card {
-    background-image: linear-gradient(135deg, rgba(99, 102, 241, 0.015) 25%, transparent 25%, transparent 50%, rgba(99, 102, 241, 0.015) 50%, rgba(99, 102, 241, 0.015) 75%, transparent 75%, transparent);
+    
 }
 
 .card::before {
@@ -1241,36 +1248,32 @@ body::after {
 /* ==========================================================================
    FLOATING & HEADER THEME SWITCH BUTTON
    ========================================================================== */
-.theme-switch-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--border-radius-md);
-    background: var(--bg-card);
+.theme-toggle {
+    background: var(--bg-main);
     border: 1px solid var(--border-color);
-    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    color: var(--text-secondary);
     cursor: pointer;
-    box-shadow: var(--shadow-soft);
     transition: var(--transition-smooth);
-    overflow: hidden;
-    position: relative;
 }
 
-.theme-switch-btn:hover {
+.theme-toggle:hover {
     transform: translateY(-2px) rotate(15deg);
     border-color: var(--primary-light);
     color: var(--primary-light);
     box-shadow: 0 8px 20px var(--primary-glow);
 }
 
-.theme-switch-btn i {
+.theme-toggle i {
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.theme-switch-btn:active i {
+.theme-toggle:active i {
     transform: scale(0.85);
 }
 

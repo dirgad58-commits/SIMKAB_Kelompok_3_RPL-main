@@ -146,7 +146,7 @@
                 </a>
                 
                 <!-- Logout -->
-                <a href="logout.php" class="menu-item logout-link" style="margin-top: 24px; border-top: 1px solid var(--border-color); color: var(--danger);">
+                <a href="logout.php" class="menu-item logout-link" style="color: var(--danger);">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span>Keluar Sistem</span>
                 </a>

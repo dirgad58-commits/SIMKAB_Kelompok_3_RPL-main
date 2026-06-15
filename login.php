@@ -61,10 +61,10 @@ if (isset($_SESSION['user_id'])) {
         .login-container {
             display: flex;
             width: 100%;
-            max-width: 900px;
+            max-width: 800px;
             background: var(--bg-card-solid);
             border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 20px rgba(0, 0, 0, 0.05);
             overflow: hidden;
             z-index: 10;
             border: 1px solid var(--border-color);
@@ -72,26 +72,30 @@ if (isset($_SESSION['user_id'])) {
 
         /* Bagian Kiri: Branding Warna Solid */
         .brand-section {
+            position: relative;
             flex: 1;
             background: var(--bg-card-hover);
             padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
             border-right: 1px solid var(--border-color);
         }
 
         .brand-logo {
-            width: 48px;
-            height: 48px;
-            background: var(--primary);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: #fff;
-            border-radius: 12px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 36px;
             margin-bottom: 24px;
+            box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
         }
 
         .brand-title {
@@ -144,20 +148,21 @@ if (isset($_SESSION['user_id'])) {
 
         .clean-input {
             width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
             font-size: 14px;
             color: var(--text-primary);
-            background: var(--bg-card-solid);
+            background: var(--bg-main);
             outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: all 0.2s;
             font-family: inherit;
         }
 
         .clean-input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-glow);
+            background: var(--bg-card-solid);
+            box-shadow: 0 0 0 4px var(--primary-glow);
         }
 
         .btn-primary {
@@ -259,13 +264,12 @@ if (isset($_SESSION['user_id'])) {
 </head>
 <body>
 
-    <a href="landing.php" class="back-link">
-        <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
-    </a>
-
     <div class="login-container">
         <!-- Area Kiri: Branding -->
         <div class="brand-section">
+            <a href="landing.php" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+            </a>
             <div class="brand-logo">
                 <i class="fa-solid fa-lock"></i>
             </div>
