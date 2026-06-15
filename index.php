@@ -53,6 +53,7 @@ require_once 'includes/sidebar.php';
                         border-radius: 12px;
                         box-shadow: 0 2px 8px rgba(0,0,0,0.03);
                         border: 1px solid var(--border-color);
+                        border-top: 1px solid var(--primary); /* Menyamarkan garis atas dengan warna header */
                         transition: all 0.2s ease;
                         display: flex;
                         flex-direction: column;
