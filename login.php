@@ -281,11 +281,11 @@ if (isset($_SESSION['user_id'])) {
         <!-- Area Kanan: Form -->
         <div class="form-section">
             <h2 class="form-title">Login Akun</h2>
-            <p class="form-subtitle">Masukkan kredensial Anda yang telah terdaftar di sistem.</p>
+            <p class="form-subtitle">Masukkan username dan kata sandi Anda yang telah terdaftar di sistem.</p>
 
             <div class="alert-box" id="error-alert">
                 <i class="fa-solid fa-circle-exclamation"></i>
-                <span id="error-msg">Kredensial tidak valid.</span>
+                <span id="error-msg">Username atau kata sandi salah.</span>
             </div>
 
             <form id="login-form">
