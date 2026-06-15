@@ -50,43 +50,39 @@ require_once 'includes/sidebar.php';
                     /* EMPLOYEE CARD GRID STYLES */
                     .employee-card-item {
                         background: var(--bg-card-solid);
-                        border-radius: 16px;
-                        overflow: hidden;
-                        box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-                        border: 1px solid rgba(0,0,0,0.04);
-                        transition: transform 0.2s, box-shadow 0.2s;
-                        position: relative;
+                        border-radius: 12px;
+                        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+                        border: 1px solid var(--border-color);
+                        transition: all 0.2s ease;
                         display: flex;
                         flex-direction: column;
-                    }
-                    .employee-card-item:hover {
-                        transform: translateY(-5px);
-                        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-                    }
-                    .emp-card-header {
-                        height: 80px;
-                        background: linear-gradient(135deg, var(--primary), var(--primary-light));
                         position: relative;
                     }
+                    .employee-card-item:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+                        border-color: rgba(0,0,0,0.1);
+                    }
+                    .emp-card-header {
+                        padding: 20px 20px 0 20px;
+                        position: relative;
+                        background: transparent;
+                    }
                     .emp-avatar {
-                        width: 70px;
-                        height: 70px;
-                        background: var(--bg-card-solid);
+                        width: 56px;
+                        height: 56px;
+                        background: var(--bg-main);
                         border-radius: 50%;
-                        position: absolute;
-                        bottom: -35px;
-                        left: 20px;
-                        border: 4px solid var(--bg-card-solid);
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-size: 24px;
-                        font-weight: 800;
-                        color: var(--primary);
-                        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: var(--text-secondary);
+                        border: 1px solid var(--border-color);
                     }
                     .emp-card-body {
-                        padding: 45px 20px 20px 20px;
+                        padding: 15px 20px 20px 20px;
                         flex: 1;
                     }
                 </style>
