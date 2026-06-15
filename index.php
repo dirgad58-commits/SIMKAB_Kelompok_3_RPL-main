@@ -57,6 +57,7 @@ require_once 'includes/sidebar.php';
                         display: flex;
                         flex-direction: column;
                         position: relative;
+                        overflow: hidden;
                     }
                     .employee-card-item:hover {
                         transform: translateY(-3px);
@@ -67,7 +68,6 @@ require_once 'includes/sidebar.php';
                         height: 70px;
                         background: var(--primary);
                         position: relative;
-                        border-radius: 11px 11px 0 0;
                     }
                     .emp-avatar {
                         width: 64px;
