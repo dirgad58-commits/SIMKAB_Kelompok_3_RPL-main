@@ -442,7 +442,7 @@ body::after {
 
 .header-title-section h1 {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--text-primary);
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -451,7 +451,7 @@ body::after {
 
 .header-title-section p {
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--text-muted);
     letter-spacing: 1px;
     text-transform: uppercase;
