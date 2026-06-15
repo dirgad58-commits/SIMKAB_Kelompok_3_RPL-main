@@ -4,7 +4,7 @@
 <section id="panel-karyawan" class="panel-section">
     <?php if (strtolower(trim($user_role)) === 'karyawan'): ?>
         <!-- Tampilan Khusus Karyawan: Dasbor Profil Utama -->
-        <div class="action-bar" style="border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <div class="action-bar" style="padding-bottom: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
             <h2 style="color: var(--text-primary); margin: 0;"><i class="fa-solid fa-user-circle"></i> Dasbor Profil Saya</h2>
             <button class="btn btn-primary" onclick="document.getElementById('modal-cetak-idcard').classList.add('active')" style="padding: 8px 16px; display: flex; align-items: center; gap: 8px;">
                 <i class="fa-solid fa-id-badge"></i> Lihat & Cetak ID Card

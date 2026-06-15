@@ -3,13 +3,15 @@
  * css/style.css - Sistem Desain UI Premium, Layout Dashboard, & Komponen
  */
 
-/* Import Google Fonts - Plus Jakarta Sans */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+/* Import Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* ==========================================================================
    CSS VARIABLE & DESIGN TOKENS
    ========================================================================== */
 :root {
+    --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+    
     /* --- TEMA TERANG: MODERN SAAS (Ocean Blue & Slate) --- */
     --bg-main: #e8edf2;        /* Soft Cool Gray for Contrast */
     --bg-card: rgba(255, 255, 255, 0.95);
