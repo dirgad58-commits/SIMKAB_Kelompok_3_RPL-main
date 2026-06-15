@@ -660,7 +660,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-envelope" style="width: 14px;"></i> <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;">${emp.email}</span></div>
                     </div>
                 </div>
-                <div class="emp-card-footer" style="display: flex; justify-content: center; gap: 10px; padding: 15px; background: rgba(0,0,0,0.1); border-top: 1px solid var(--border-color);">
+                <div class="emp-card-footer" style="display: flex; justify-content: center; gap: 10px; padding: 15px; background: var(--bg-card-hover); border-top: 1px solid var(--border-color);">
                     <button class="btn btn-secondary btn-icon btn-detail" data-id="${emp.id}" title="Detail Profil"><i class="fa-solid fa-id-card"></i></button>
                     <button class="btn btn-secondary btn-icon btn-edit" data-id="${emp.id}" title="Edit Data"><i class="fa-solid fa-pen-to-square" style="color:var(--primary-light);"></i></button>
                     <button class="btn btn-danger btn-icon btn-hapus" data-id="${emp.id}" title="Hapus"><i class="fa-solid fa-trash-can"></i></button>

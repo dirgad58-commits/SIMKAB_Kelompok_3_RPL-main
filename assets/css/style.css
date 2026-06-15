@@ -11,7 +11,7 @@
    ========================================================================== */
 :root {
     /* --- TEMA TERANG: MODERN SAAS (Ocean Blue & Slate) --- */
-    --bg-main: #f8fafc;        /* Snow White / Off-white */
+    --bg-main: #e8edf2;        /* Soft Cool Gray for Contrast */
     --bg-card: rgba(255, 255, 255, 0.95);
     --bg-card-solid: #ffffff;
     --bg-card-hover: #f1f5f9;
