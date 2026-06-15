@@ -39,7 +39,7 @@
         <div class="dashboard-grid">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title"><i class="fa-solid fa-chart-line"></i> Tren Kehadiran Nasional</h2>
+                    <h2 class="card-title"><i class="fa-solid fa-chart-line"></i> Statistik Kehadiran</h2>
                 </div>
                 <div style="position: relative; height: 320px;">
                     <canvas id="chart-kehadiran"></canvas>
@@ -47,7 +47,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title"><i class="fa-solid fa-chart-pie"></i> Distribusi Divisi</h2>
+                    <h2 class="card-title"><i class="fa-solid fa-chart-pie"></i> Sebaran Divisi</h2>
                 </div>
                 <div style="position: relative; height: 320px;">
                     <canvas id="chart-divisi"></canvas>

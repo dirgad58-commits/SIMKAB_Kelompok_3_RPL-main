@@ -73,7 +73,7 @@ class SIMKABCharts {
                         labels: {
                             color: textSecondary,
                             font: {
-                                family: 'Plus Jakarta Sans',
+                                family: 'Inter',
                                 size: 11,
                                 weight: '500'
                             },
@@ -88,7 +88,7 @@ class SIMKABCharts {
                         borderWidth: 1,
                         padding: 10,
                         bodyFont: {
-                            family: 'Plus Jakarta Sans'
+                            family: 'Inter'
                         }
                     }
                 },
@@ -138,7 +138,7 @@ class SIMKABCharts {
         chartKehadiranInstance = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Hadir (Log)', 'Izin', 'Sakit', 'Mangkir / Alpa'],
+                labels: ['Hadir', 'Izin', 'Sakit', 'Tanpa Keterangan'],
                 datasets: [{
                     label: 'Frekuensi Absensi',
                     data: [countHadir, countIzin, countSakit, countAlpa],
@@ -148,14 +148,8 @@ class SIMKABCharts {
                         'rgba(245, 158, 11, 0.85)', // Amber Solid
                         'rgba(239, 68, 68, 0.85)'   // Red Solid
                     ],
-                    borderColor: [
-                        '#10b981',
-                        '#3b82f6',
-                        '#f59e0b',
-                        '#ef4444'
-                    ],
-                    borderWidth: 2,
-                    borderRadius: 6
+                    borderWidth: 0,
+                    borderRadius: 8
                 }]
             },
             options: {
@@ -173,7 +167,7 @@ class SIMKABCharts {
                         borderWidth: 1,
                         padding: 10,
                         bodyFont: {
-                            family: 'Plus Jakarta Sans'
+                            family: 'Inter'
                         }
                     }
                 },
@@ -185,7 +179,7 @@ class SIMKABCharts {
                         ticks: {
                             color: textSecondary,
                             font: {
-                                family: 'Plus Jakarta Sans',
+                                family: 'Inter',
                                 size: 11
                             }
                         }
@@ -198,7 +192,7 @@ class SIMKABCharts {
                         ticks: {
                             color: textSecondary,
                             font: {
-                                family: 'Plus Jakarta Sans',
+                                family: 'Inter',
                                 size: 11
                             },
                             stepSize: 2
