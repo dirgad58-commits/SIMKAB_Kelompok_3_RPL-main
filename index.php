@@ -65,10 +65,9 @@ require_once 'includes/sidebar.php';
                     }
                     .emp-card-header {
                         height: 70px;
-                        background: var(--primary-glow);
+                        background: var(--primary);
                         position: relative;
                         border-radius: 11px 11px 0 0;
-                        border-bottom: 1px solid rgba(13, 148, 136, 0.1);
                     }
                     .emp-avatar {
                         width: 64px;
