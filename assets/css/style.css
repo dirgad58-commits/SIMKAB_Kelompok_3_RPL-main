@@ -441,9 +441,11 @@ body::after {
 }
 
 .header-title-section h1 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     line-height: 1.2;
 }
 
