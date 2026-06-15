@@ -64,25 +64,30 @@ require_once 'includes/sidebar.php';
                         border-color: rgba(0,0,0,0.1);
                     }
                     .emp-card-header {
-                        padding: 20px 20px 0 20px;
+                        height: 60px;
+                        background: linear-gradient(135deg, #0f172a, var(--primary));
                         position: relative;
-                        background: transparent;
+                        border-radius: 11px 11px 0 0;
                     }
                     .emp-avatar {
-                        width: 56px;
-                        height: 56px;
-                        background: var(--bg-main);
+                        width: 60px;
+                        height: 60px;
+                        background: var(--bg-card-solid);
                         border-radius: 50%;
+                        position: absolute;
+                        bottom: -30px;
+                        left: 20px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-size: 18px;
-                        font-weight: 700;
-                        color: var(--text-secondary);
-                        border: 1px solid var(--border-color);
+                        font-size: 20px;
+                        font-weight: 800;
+                        color: var(--primary);
+                        border: 3px solid var(--bg-card-solid);
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
                     }
                     .emp-card-body {
-                        padding: 15px 20px 20px 20px;
+                        padding: 40px 20px 20px 20px;
                         flex: 1;
                     }
                 </style>
