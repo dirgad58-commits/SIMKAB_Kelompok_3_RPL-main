@@ -36,10 +36,13 @@ if (isset($_SESSION['user_id'])) {
            CLEAN MINIMALIST AUTHENTICATION STYLES
            -------------------------------------------------------------------------- */
         body {
+            margin: 0;
+            padding: 40px 20px;
+            box-sizing: border-box;
             background-color: var(--bg-main);
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: center; /* Untuk layar besar */
             justify-content: center;
             position: relative;
             color: var(--text-primary);
@@ -62,6 +65,7 @@ if (isset($_SESSION['user_id'])) {
             display: flex;
             width: 100%;
             max-width: 800px;
+            margin: auto; /* Memaksa centering absolut di flex container */
             background: var(--bg-card-solid);
             border-radius: var(--border-radius-lg);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 20px rgba(0, 0, 0, 0.05);
