@@ -61,33 +61,34 @@ require_once 'includes/sidebar.php';
                     .employee-card-item:hover {
                         transform: translateY(-3px);
                         box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-                        border-color: rgba(0,0,0,0.1);
+                        border-color: var(--primary-glow);
                     }
                     .emp-card-header {
-                        height: 60px;
-                        background: linear-gradient(135deg, #0f172a, var(--primary));
+                        height: 70px;
+                        background: var(--primary-glow);
                         position: relative;
                         border-radius: 11px 11px 0 0;
+                        border-bottom: 1px solid rgba(13, 148, 136, 0.1);
                     }
                     .emp-avatar {
-                        width: 60px;
-                        height: 60px;
+                        width: 64px;
+                        height: 64px;
                         background: var(--bg-card-solid);
                         border-radius: 50%;
                         position: absolute;
-                        bottom: -30px;
+                        bottom: -32px;
                         left: 20px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-size: 20px;
+                        font-size: 22px;
                         font-weight: 800;
                         color: var(--primary);
                         border: 3px solid var(--bg-card-solid);
-                        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.06);
                     }
                     .emp-card-body {
-                        padding: 40px 20px 20px 20px;
+                        padding: 45px 20px 20px 20px;
                         flex: 1;
                     }
                 </style>
