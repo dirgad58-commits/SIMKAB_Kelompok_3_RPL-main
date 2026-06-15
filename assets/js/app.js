@@ -648,7 +648,9 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <div class="emp-card-header">
                     <div class="emp-avatar">${initials}</div>
-                    <span class="badge ${emp.status === 'Aktif' ? 'active' : 'inactive'}" style="position: absolute; top: 15px; right: 15px; font-size: 10px;">${emp.status}</span>
+                    <span class="badge" style="position: absolute; top: 15px; right: 15px; font-size: 10px; background: rgba(255, 255, 255, 0.2); color: white; border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: none; backdrop-filter: blur(4px);">
+                        <i class="fa-solid fa-circle" style="font-size: 6px; margin-right: 4px; color: ${emp.status === 'Aktif' ? '#86efac' : '#fca5a5'};"></i>${emp.status}
+                    </span>
                 </div>
                 <div class="emp-card-body">
                     <h3 class="emp-name" style="margin-bottom: 4px; color: var(--text-primary); font-size: 16px;">${emp.nama}</h3>
