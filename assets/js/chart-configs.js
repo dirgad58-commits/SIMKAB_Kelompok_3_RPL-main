@@ -60,8 +60,8 @@ class SIMKABCharts {
                         '#6366f1'  // Electric Indigo
                     ],
                     borderColor: bgCardSolid, // Sesuai warna card background
-                    borderWidth: 3,
-                    hoverOffset: 12
+                    borderWidth: 2,
+                    hoverOffset: 8
                 }]
             },
             options: {
@@ -72,12 +72,15 @@ class SIMKABCharts {
                         position: 'bottom',
                         labels: {
                             color: textSecondary,
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            boxWidth: 8,
                             font: {
                                 family: 'Inter',
                                 size: 11,
                                 weight: '500'
                             },
-                            padding: 15
+                            padding: 20
                         }
                     },
                     tooltip: {
@@ -92,7 +95,7 @@ class SIMKABCharts {
                         }
                     }
                 },
-                cutout: '65%'
+                cutout: '75%'
             }
         });
     }
@@ -142,6 +145,7 @@ class SIMKABCharts {
                 datasets: [{
                     label: 'Frekuensi Absensi',
                     data: [countHadir, countIzin, countSakit, countAlpa],
+                    maxBarThickness: 45,
                     backgroundColor: [
                         'rgba(16, 185, 129, 0.85)', // Emerald Solid
                         'rgba(59, 130, 246, 0.85)', // Blue Solid
@@ -174,7 +178,10 @@ class SIMKABCharts {
                 scales: {
                     x: {
                         grid: {
-                            color: borderColorVar
+                            display: false
+                        },
+                        border: {
+                            display: false
                         },
                         ticks: {
                             color: textSecondary,
@@ -187,7 +194,11 @@ class SIMKABCharts {
                     y: {
                         beginAtZero: true,
                         grid: {
-                            color: borderColorVar
+                            color: borderColorVar,
+                            borderDash: [4, 4]
+                        },
+                        border: {
+                            display: false
                         },
                         ticks: {
                             color: textSecondary,
