@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+    <!-- Background -->
+    <rect width="1200" height="800" fill="#F4F5F7"/>
+    
+    <!-- Sidebar -->
+    <rect width="250" height="800" fill="#D1D5DB"/>
+    <text x="20" y="50" font-family="sans-serif" font-size="24" font-weight="bold" fill="#333">SIMKAB</text>
+    <text x="20" y="70" font-family="sans-serif" font-size="12" fill="#666">Manajemen Karyawan Bank</text>
+    
+        <rect x="10" y="90" width="230" height="30" fill="#A0A0A0" rx="4"/>
+        <text x="40" y="110" font-family="sans-serif" font-size="13" fill="#333333">Dashboard Analytics</text>
+        <rect x="15" y="97" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="125" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="145" font-family="sans-serif" font-size="13" fill="#333333">Manajemen Karyawan</text>
+        <rect x="15" y="132" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="160" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="180" font-family="sans-serif" font-size="13" fill="#333333">Evaluasi Kinerja</text>
+        <rect x="15" y="167" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="195" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="215" font-family="sans-serif" font-size="13" fill="#333333">Sistem Penggajian</text>
+        <rect x="15" y="202" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="230" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="250" font-family="sans-serif" font-size="13" fill="#333333">Pengajuan Cuti</text>
+        <rect x="15" y="237" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="265" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="285" font-family="sans-serif" font-size="13" fill="#333333">Rekam Kehadiran</text>
+        <rect x="15" y="272" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="300" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="320" font-family="sans-serif" font-size="13" fill="#333333">Mutasi & Promosi</text>
+        <rect x="15" y="307" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="335" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="355" font-family="sans-serif" font-size="13" fill="#333333">Pelatihan & Sertifikasi</text>
+        <rect x="15" y="342" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="370" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="390" font-family="sans-serif" font-size="13" fill="#333333">Manajemen Aset</text>
+        <rect x="15" y="377" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="405" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="425" font-family="sans-serif" font-size="13" fill="#333333">Portal Pengumuman</text>
+        <rect x="15" y="412" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+    
+    <!-- Header -->
+    <rect x="250" width="950" height="80" fill="#FFFFFF"/>
+    <text x="280" y="40" font-family="sans-serif" font-size="22" font-weight="bold" fill="#333">Dashboard Analytics</text>
+    <text x="280" y="60" font-family="sans-serif" font-size="13" fill="#666">SIMKAB Live Database</text>
+    <circle cx="1150" cy="40" r="15" fill="#D1D5DB"/>
+    <text x="1145" y="45" font-family="sans-serif" font-size="14" fill="#333">U</text>
+    <text x="1080" y="45" font-family="sans-serif" font-size="14" fill="#333">HRD</text>
+    
+    <!-- Main Content -->
+    <g transform="translate(250, 80)">
+        
+    <rect x="30" y="30" width="280" height="120" fill="#FFFFFF" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="50" y="65" font-family="sans-serif" font-size="14" fill="#666">Total Karyawan Aktif</text>
+    <text x="50" y="105" font-family="sans-serif" font-size="32" font-weight="bold" fill="#333">124</text>
+    
+    <rect x="335" y="30" width="280" height="120" fill="#FFFFFF" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="355" y="65" font-family="sans-serif" font-size="14" fill="#666">Pengajuan Cuti Aktif</text>
+    <text x="355" y="105" font-family="sans-serif" font-size="32" font-weight="bold" fill="#333">5</text>
+    
+    <rect x="640" y="30" width="280" height="120" fill="#FFFFFF" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="660" y="65" font-family="sans-serif" font-size="14" fill="#666">Absensi Hari Ini</text>
+    <text x="660" y="105" font-family="sans-serif" font-size="32" font-weight="bold" fill="#333">110</text>
+
+    <!-- Content Card -->
+    <rect x="30" y="180" width="890" height="400" fill="#FFFFFF" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="50" y="220" font-family="sans-serif" font-size="18" font-weight="bold" fill="#333">Pengumuman Internal Terkini</text>
+    
+    <rect x="50" y="240" width="850" height="80" fill="#F9FAFB" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="70" y="270" font-family="sans-serif" font-size="16" font-weight="bold" fill="#333">Libur Nasional Cuti Bersama</text>
+    <text x="70" y="295" font-family="sans-serif" font-size="14" fill="#666">Berdasarkan surat edaran, libur berlaku tgl 20 - 21 Juni.</text>
+    
+    <rect x="50" y="340" width="850" height="80" fill="#F9FAFB" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="70" y="370" font-family="sans-serif" font-size="16" font-weight="bold" fill="#333">Jadwal Penilaian KPI Tahunan</text>
+    <text x="70" y="395" font-family="sans-serif" font-size="14" fill="#666">Harap seluruh HRD menyelesaikan review sebelum akhir bulan.</text>
+
+    </g>
+</svg>

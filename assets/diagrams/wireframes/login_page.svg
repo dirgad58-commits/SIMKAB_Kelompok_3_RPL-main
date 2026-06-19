@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+    <!-- Background -->
+    <rect width="1200" height="800" fill="#F3F4F6"/>
+    
+    <text x="40" y="50" font-family="sans-serif" font-size="14" font-weight="bold" fill="#666">< Kembali ke Beranda</text>
+
+    <!-- Login Container -->
+    <rect x="200" y="150" width="800" height="500" fill="#FFFFFF" rx="16" stroke="#E5E7EB" stroke-width="1"/>
+    
+    <!-- Left Side: Brand -->
+    <rect x="200" y="150" width="350" height="500" fill="#F9FAFB" rx="16"/>
+    <circle cx="375" cy="300" r="40" fill="#D1D5DB"/>
+    <text x="375" y="380" font-family="sans-serif" font-size="28" font-weight="bold" fill="#333" text-anchor="middle">Selamat Datang!</text>
+    <text x="375" y="410" font-family="sans-serif" font-size="14" fill="#666" text-anchor="middle">Silakan masuk menggunakan username</text>
+    <text x="375" y="430" font-family="sans-serif" font-size="14" fill="#666" text-anchor="middle">dan password Anda ke sistem SIMKAB.</text>
+
+    <!-- Right Side: Form -->
+    <text x="600" y="220" font-family="sans-serif" font-size="24" font-weight="bold" fill="#333">Login Akun</text>
+    <text x="600" y="245" font-family="sans-serif" font-size="14" fill="#666">Masukkan username dan kata sandi Anda terdaftar.</text>
+
+    <!-- Username -->
+    <text x="600" y="300" font-family="sans-serif" font-size="13" font-weight="bold" fill="#666">Username</text>
+    <rect x="600" y="315" width="340" height="45" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1" rx="8"/>
+    
+    <!-- Password -->
+    <text x="600" y="390" font-family="sans-serif" font-size="13" font-weight="bold" fill="#666">Kata Sandi</text>
+    <rect x="600" y="405" width="340" height="45" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1" rx="8"/>
+
+    <!-- Button -->
+    <rect x="600" y="480" width="340" height="45" fill="#333" rx="8"/>
+    <text x="770" y="508" font-family="sans-serif" font-size="15" font-weight="bold" fill="#FFF" text-anchor="middle">Masuk ke Sistem</text>
+
+    <!-- Demo Tags -->
+    <text x="600" y="555" font-family="sans-serif" font-size="12" font-weight="bold" fill="#9CA3AF">PILIH AKUN DEMO</text>
+    <rect x="600" y="570" width="70" height="30" fill="#F3F4F6" rx="6" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="615" y="590" font-family="sans-serif" font-size="12" font-weight="bold" fill="#666">Admin</text>
+    
+    <rect x="680" y="570" width="60" height="30" fill="#F3F4F6" rx="6" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="695" y="590" font-family="sans-serif" font-size="12" font-weight="bold" fill="#666">HRD</text>
+
+    <rect x="750" y="570" width="80" height="30" fill="#F3F4F6" rx="6" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="765" y="590" font-family="sans-serif" font-size="12" font-weight="bold" fill="#666">Pegawai</text>
+
+</svg>

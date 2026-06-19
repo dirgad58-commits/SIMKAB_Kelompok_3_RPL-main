@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+    <!-- Background -->
+    <rect width="1200" height="800" fill="#F4F5F7"/>
+    
+    <!-- Sidebar -->
+    <rect width="250" height="800" fill="#D1D5DB"/>
+    <text x="20" y="50" font-family="sans-serif" font-size="24" font-weight="bold" fill="#333">SIMKAB</text>
+    <text x="20" y="70" font-family="sans-serif" font-size="12" fill="#666">Manajemen Karyawan Bank</text>
+    
+        <rect x="10" y="90" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="110" font-family="sans-serif" font-size="13" fill="#333333">Dashboard Analytics</text>
+        <rect x="15" y="97" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="125" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="145" font-family="sans-serif" font-size="13" fill="#333333">Manajemen Karyawan</text>
+        <rect x="15" y="132" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="160" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="180" font-family="sans-serif" font-size="13" fill="#333333">Evaluasi Kinerja</text>
+        <rect x="15" y="167" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="195" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="215" font-family="sans-serif" font-size="13" fill="#333333">Sistem Penggajian</text>
+        <rect x="15" y="202" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="230" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="250" font-family="sans-serif" font-size="13" fill="#333333">Pengajuan Cuti</text>
+        <rect x="15" y="237" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="265" width="230" height="30" fill="#A0A0A0" rx="4"/>
+        <text x="40" y="285" font-family="sans-serif" font-size="13" fill="#333333">Rekam Kehadiran</text>
+        <rect x="15" y="272" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="300" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="320" font-family="sans-serif" font-size="13" fill="#333333">Mutasi & Promosi</text>
+        <rect x="15" y="307" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="335" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="355" font-family="sans-serif" font-size="13" fill="#333333">Pelatihan & Sertifikasi</text>
+        <rect x="15" y="342" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="370" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="390" font-family="sans-serif" font-size="13" fill="#333333">Manajemen Aset</text>
+        <rect x="15" y="377" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+        <rect x="10" y="405" width="230" height="30" fill="transparent" rx="4"/>
+        <text x="40" y="425" font-family="sans-serif" font-size="13" fill="#333333">Portal Pengumuman</text>
+        <rect x="15" y="412" width="14" height="14" fill="none" stroke="#333" stroke-width="1.5"/>
+        
+    
+    <!-- Header -->
+    <rect x="250" width="950" height="80" fill="#FFFFFF"/>
+    <text x="280" y="40" font-family="sans-serif" font-size="22" font-weight="bold" fill="#333">Rekam Kehadiran</text>
+    <text x="280" y="60" font-family="sans-serif" font-size="13" fill="#666">SIMKAB Live Database</text>
+    <circle cx="1150" cy="40" r="15" fill="#D1D5DB"/>
+    <text x="1145" y="45" font-family="sans-serif" font-size="14" fill="#333">U</text>
+    <text x="1080" y="45" font-family="sans-serif" font-size="14" fill="#333">PEGAWAI</text>
+    
+    <!-- Main Content -->
+    <g transform="translate(250, 80)">
+        
+    <rect x="30" y="30" width="430" height="120" fill="#FFFFFF" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="50" y="65" font-family="sans-serif" font-size="16" fill="#666">Status Absensi Hari Ini</text>
+    <text x="50" y="105" font-family="sans-serif" font-size="28" font-weight="bold" fill="#333">BELUM ABSEN</text>
+    
+    <rect x="490" y="30" width="430" height="120" fill="#FFFFFF" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="510" y="65" font-family="sans-serif" font-size="16" fill="#666">Sisa Cuti Tahunan</text>
+    <text x="510" y="105" font-family="sans-serif" font-size="28" font-weight="bold" fill="#333">12 Hari</text>
+    
+    <!-- GPS Map Box -->
+    <rect x="30" y="180" width="890" height="400" fill="#FFFFFF" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+    <text x="50" y="220" font-family="sans-serif" font-size="18" font-weight="bold" fill="#333">E-Absensi Geofencing (GPS)</text>
+    <!-- Map Placeholder -->
+    <rect x="50" y="240" width="850" height="250" fill="#E5E7EB" rx="8"/>
+    <text x="380" y="360" font-family="sans-serif" font-size="20" fill="#9CA3AF" font-weight="bold">[ GOOGLE MAPS AREA ]</text>
+    <!-- Map Pin -->
+    <circle cx="475" cy="320" r="10" fill="#4B5563"/>
+    <circle cx="475" cy="320" r="60" fill="none" stroke="#4B5563" stroke-width="2" stroke-dasharray="6"/>
+    
+    <rect x="50" y="510" width="850" height="50" fill="#9CA3AF" rx="8"/>
+    <text x="420" y="540" font-family="sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">KLIK ABSEN MASUK</text>
+
+    </g>
+</svg>

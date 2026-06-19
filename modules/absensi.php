@@ -14,6 +14,7 @@
                 <i class="fa-solid fa-user-shield" style="font-size: 32px; color: var(--warning); margin-bottom: 10px;"></i>
                 <h3 style="font-size: 14px; color: var(--text-primary); margin-bottom: 5px;">Mode Administrator</h3>
                 <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">Sebagai Admin/HRD, Anda tidak perlu melakukan absen harian. Silakan pantau log kehadiran karyawan pada tabel di samping.</p>
+                <button class="btn btn-secondary" id="btn-absen-manual" style="margin-top: 15px; width: 100%; border-color: var(--primary); color: var(--primary-light);"><i class="fa-solid fa-user-clock"></i> Input Absen Manual</button>
             </div>
             <?php else: ?>
             <div class="form-group" style="display: none;">
@@ -94,3 +95,49 @@
     </div>
 </div>
 
+<!-- Modal Input Absen Manual -->
+<div class="modal-overlay" id="modal-absen-manual">
+    <div class="modal-content" style="max-width: 500px;">
+        <div class="modal-header">
+            <h3 class="modal-title"><i class="fa-solid fa-user-clock"></i> Input Absen Manual</h3>
+            <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+            <form id="form-absen-manual">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="manual-karyawan">Pilih Karyawan</label>
+                    <select id="manual-karyawan" class="form-control" required>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="manual-tanggal">Tanggal Absensi</label>
+                    <input type="date" id="manual-tanggal" class="form-control" required>
+                </div>
+                <div class="form-grid" style="margin-bottom: 15px;">
+                    <div class="form-group">
+                        <label for="manual-jam-masuk">Jam Masuk</label>
+                        <input type="time" id="manual-jam-masuk" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="manual-jam-keluar">Jam Keluar</label>
+                        <input type="time" id="manual-jam-keluar" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label for="manual-status">Status Kehadiran</label>
+                    <select id="manual-status" class="form-control" required>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Terlambat">Terlambat</option>
+                        <option value="Sakit">Sakit</option>
+                        <option value="Izin">Izin</option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary modal-close-btn" type="button">Batal</button>
+            <button class="btn btn-primary" type="submit" form="form-absen-manual"><i class="fa-solid fa-save"></i> Simpan Absen</button>
+        </div>
+    </div>
+</div>

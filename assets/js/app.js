@@ -1622,6 +1622,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Input Absen Manual Action (Admin Only)
+    const btnAbsenManual = document.getElementById('btn-absen-manual');
+    const formAbsenManual = document.getElementById('form-absen-manual');
+    const selectManualKaryawan = document.getElementById('manual-karyawan');
+    
+    if (btnAbsenManual) {
+        btnAbsenManual.addEventListener('click', () => {
+            if (selectManualKaryawan) {
+                selectManualKaryawan.innerHTML = '<option value="">-- Pilih Karyawan --</option>';
+                const karyawanList = SIMKABData.getKaryawan();
+                karyawanList.forEach(emp => {
+                    const opt = document.createElement('option');
+                    opt.value = emp.id;
+                    opt.textContent = `${emp.nama} (${emp.nip})`;
+                    selectManualKaryawan.appendChild(opt);
+                });
+            }
+            if (formAbsenManual) formAbsenManual.reset();
+            // Set default date to today
+            document.getElementById('manual-tanggal').value = new Date().toISOString().split('T')[0];
+            showModal('modal-absen-manual');
+        });
+    }
+
+    if (formAbsenManual) {
+        formAbsenManual.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const idKaryawan = selectManualKaryawan.value;
+            const tanggal = document.getElementById('manual-tanggal').value;
+            const jamMasuk = document.getElementById('manual-jam-masuk').value;
+            const jamKeluar = document.getElementById('manual-jam-keluar').value;
+            const status = document.getElementById('manual-status').value;
+
+            if (!idKaryawan || !tanggal || !status) {
+                alert('Pilih karyawan, tanggal, dan status terlebih dahulu.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('id_karyawan', idKaryawan);
+            formData.append('tanggal', tanggal);
+            formData.append('jam_masuk', jamMasuk);
+            formData.append('jam_keluar', jamKeluar);
+            formData.append('status', status);
+
+            try {
+                const res = await fetch('api.php?action=manual_absen', {
+                    method: 'POST',
+                    body: formData
+                }).then(r => r.json());
+
+                if (res.status === 'success') {
+                    await refreshAllData();
+                    renderAbsensiTable();
+                    closeModal('modal-absen-manual');
+                    alert("Berhasil Input Absen Manual!");
+                } else {
+                    alert(res.message);
+                }
+            } catch (err) {
+                console.error("Gagal input absen manual:", err);
+            }
+        });
+    }
+
     // ==========================================================================
     // 11. FEATURE 7: MUTASI, ROTASI & PROMOSI
     // ==========================================================================

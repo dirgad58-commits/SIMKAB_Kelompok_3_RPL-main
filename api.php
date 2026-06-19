@@ -590,6 +590,48 @@ try {
             ];
             break;
 
+        case 'manual_absen':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (strtolower(trim($user_role)) === 'karyawan') {
+                    throw new Exception("Akses ditolak. Fitur ini hanya untuk Admin/HRD.");
+                }
+                
+                $idKaryawan = $_POST['id_karyawan'];
+                $tanggal = $_POST['tanggal'];
+                $jamMasuk = $_POST['jam_masuk'] ?: null;
+                $jamKeluar = $_POST['jam_keluar'] ?: null;
+                $status_kehadiran = $_POST['status'];
+
+                // Cek apakah sudah ada absen di tanggal tersebut
+                $stmt = $pdo->prepare("SELECT id FROM absensi WHERE id_karyawan = ? AND tanggal = ?");
+                $stmt->execute([$idKaryawan, $tanggal]);
+                $existing = $stmt->fetch();
+
+                if ($existing) {
+                    // Update
+                    $stmt = $pdo->prepare("UPDATE absensi SET jam_masuk = ?, jam_keluar = ?, status = ? WHERE id = ?");
+                    $stmt->execute([$jamMasuk, $jamKeluar, $status_kehadiran, $existing['id']]);
+                } else {
+                    // Generate ID ABS
+                    $stmt = $pdo->query("SELECT id FROM absensi ORDER BY id DESC LIMIT 1");
+                    $last_id = $stmt->fetch();
+                    $new_id = 'ABS001';
+                    if ($last_id) {
+                        $num = (int) substr($last_id['id'], 3);
+                        $new_id = 'ABS' . str_pad($num + 1, 3, '0', STR_PAD_LEFT);
+                    }
+                    // Insert
+                    $stmt = $pdo->prepare("INSERT INTO absensi (id, id_karyawan, tanggal, jam_masuk, jam_keluar, status, foto, lokasi) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->execute([$new_id, $idKaryawan, $tanggal, $jamMasuk, $jamKeluar, $status_kehadiran, 'Manual Input Admin', 'MANUAL']);
+                }
+
+                $response = [
+                    "status" => "success",
+                    "message" => "Data absensi manual berhasil disimpan."
+                ];
+            }
+            break;
+
         case 'check_in':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $idKaryawan = (strtolower(trim($user_role)) === 'karyawan') ? $id_karyawan_session : $_POST['id_karyawan'];
