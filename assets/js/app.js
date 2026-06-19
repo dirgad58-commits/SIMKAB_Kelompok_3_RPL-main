@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Subtitle Map untuk tab routing
+    let chartRenderTimeout = null;
     const pageSubtitles = {
         'panel-dashboard': 'Ringkasan eksekutif dan statistik kinerja bank hari ini.',
         'panel-karyawan': 'Kelola, cari, dan mutakhirkan seluruh data staf perbankan Anda.',
@@ -228,7 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
         await refreshAllData();
         updateDashboardStats();
         if (typeof SIMKABCharts !== 'undefined') {
-            SIMKABCharts.updateAllCharts();
+            setTimeout(() => {
+                SIMKABCharts.updateAllCharts();
+            }, 400);
         }
     })();
     
@@ -258,7 +261,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateDashboardStats();
                 if (typeof SIMKABCharts !== 'undefined') {
                     // Delay chart rendering so its built-in animation doesn't get hidden by the tab transition
-                    setTimeout(() => {
+                    if (chartRenderTimeout) clearTimeout(chartRenderTimeout);
+                    chartRenderTimeout = setTimeout(() => {
                         SIMKABCharts.updateAllCharts();
                     }, 400);
                 }
