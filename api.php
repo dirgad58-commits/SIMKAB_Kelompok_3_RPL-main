@@ -634,7 +634,7 @@ try {
 
         case 'check_in':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $idKaryawan = (strtolower(trim($user_role)) === 'karyawan') ? $id_karyawan_session : $_POST['id_karyawan'];
+                $idKaryawan = $id_karyawan_session;
                 $todayDate = date('Y-m-d');
                 $nowTime = date('H:i:s');
 
@@ -695,7 +695,7 @@ try {
 
         case 'check_out':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $idKaryawan = (strtolower(trim($user_role)) === 'karyawan') ? $id_karyawan_session : $_POST['id_karyawan'];
+                $idKaryawan = $id_karyawan_session;
                 $todayDate = date('Y-m-d');
                 $nowTime = date('H:i:s');
 
@@ -735,7 +735,7 @@ try {
 
         case 'izin_sakit':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $idKaryawan = (strtolower(trim($user_role)) === 'karyawan') ? $id_karyawan_session : $_POST['id_karyawan'];
+                $idKaryawan = $id_karyawan_session;
                 $jenis = $_POST['jenis']; // Sakit atau Izin
                 $keterangan = $_POST['keterangan'];
                 $foto = isset($_POST['foto']) ? $_POST['foto'] : null;

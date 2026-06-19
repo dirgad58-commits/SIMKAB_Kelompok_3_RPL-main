@@ -1469,11 +1469,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check-In Action
     if (btnCheckIn) {
         btnCheckIn.addEventListener('click', async () => {
-            const idKaryawan = selectAbsenKaryawan.value;
-            if (!idKaryawan) {
-                alert('Pilih karyawan absensi terlebih dahulu.');
-                return;
-            }
+            const idKaryawan = selectAbsenKaryawan ? selectAbsenKaryawan.value : '';
 
             // Validasi Geofencing
             if (window.CURRENT_USER !== 'akun.demo') {
@@ -1519,11 +1515,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check-Out Action
     if (btnCheckOut) {
         btnCheckOut.addEventListener('click', async () => {
-            const idKaryawan = selectAbsenKaryawan.value;
-            if (!idKaryawan) {
-                alert('Pilih karyawan absensi terlebih dahulu.');
-                return;
-            }
+            const idKaryawan = selectAbsenKaryawan ? selectAbsenKaryawan.value : '';
 
             // Validasi Geofencing
             if (window.CURRENT_USER !== 'akun.demo') {
@@ -1568,11 +1560,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (btnAjukanIzin) {
         btnAjukanIzin.addEventListener('click', () => {
-            const idKaryawan = selectAbsenKaryawan.value;
-            if (!idKaryawan) {
-                alert('Pilih karyawan absensi terlebih dahulu di panel absen.');
-                return;
-            }
             formIzin.reset();
             showModal('modal-izin');
         });
@@ -1581,7 +1568,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (formIzin) {
         formIzin.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const idKaryawan = selectAbsenKaryawan.value;
+            const idKaryawan = selectAbsenKaryawan ? selectAbsenKaryawan.value : '';
             const jenis = document.getElementById('izin-jenis').value;
             const keterangan = document.getElementById('izin-keterangan').value;
             const fileInput = document.getElementById('izin-file');

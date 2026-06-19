@@ -13,15 +13,16 @@
             <div class="admin-notice" style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; text-align: center; border: 1px dashed var(--border-color);">
                 <i class="fa-solid fa-user-shield" style="font-size: 32px; color: var(--warning); margin-bottom: 10px;"></i>
                 <h3 style="font-size: 14px; color: var(--text-primary); margin-bottom: 5px;">Mode Administrator</h3>
-                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">Sebagai Admin/HRD, Anda tidak perlu melakukan absen harian. Silakan pantau log kehadiran karyawan pada tabel di samping.</p>
+                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">Anda memiliki akses HRD. Gunakan tombol di bawah ini untuk menginput absen karyawan lain secara manual.</p>
                 <button class="btn btn-secondary" id="btn-absen-manual" style="margin-top: 15px; width: 100%; border-color: var(--primary); color: var(--primary-light);"><i class="fa-solid fa-user-clock"></i> Input Absen Manual</button>
             </div>
-            <?php else: ?>
+            <?php endif; ?>
+            
             <div class="form-group" style="display: none;">
                 <select id="absensi-karyawan-select" class="form-control"></select>
             </div>
             
-            <div class="check-actions-wrapper">
+            <div class="check-actions-wrapper" style="margin-top: 20px;">
                 <button class="btn btn-primary" id="btn-check-in"><i class="fa-solid fa-sign-in-alt"></i> Check In</button>
                 <button class="btn btn-secondary" id="btn-check-out"><i class="fa-solid fa-sign-out-alt"></i> Check Out</button>
                 <button class="btn btn-primary" style="background-color: #f39c12; border-color: #e67e22; margin-top: 10px; width: 100%;" id="btn-ajukan-izin"><i class="fa-solid fa-notes-medical"></i> Ajukan Sakit / Izin</button>
@@ -33,7 +34,6 @@
                 <p id="gps-distance" style="font-size: 11px; margin-top: 5px; color: var(--text-secondary);">Jarak dari kantor: Menghitung...</p>
                 <button id="btn-get-location" class="btn btn-secondary" style="font-size: 12px; padding: 4px 10px; margin-top: 5px;"><i class="fa-solid fa-satellite-dish"></i> Pindai Lokasi</button>
             </div>
-            <?php endif; ?>
         </div>
 
         <!-- Right Attendance Table Log -->
