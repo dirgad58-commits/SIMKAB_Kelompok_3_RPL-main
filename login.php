@@ -300,7 +300,10 @@ if (isset($_SESSION['user_id'])) {
                 
                 <div class="input-group">
                     <label class="input-label" for="password">Kata Sandi</label>
-                    <input type="password" id="password" name="password" class="clean-input" placeholder="Masukkan kata sandi Anda" required>
+                    <div style="position: relative;">
+                        <input type="password" id="password" name="password" class="clean-input" placeholder="Masukkan kata sandi Anda" style="padding-right: 40px;" required>
+                        <i class="fa-solid fa-eye" id="togglePassword" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted); font-size: 14px; z-index: 10;"></i>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn-primary" id="submit-btn">
@@ -384,6 +387,19 @@ if (isset($_SESSION['user_id'])) {
                     alertBox.style.display = 'flex';
                 });
             });
+
+            // Toggle Password Visibility
+            const togglePassword = document.getElementById('togglePassword');
+            const password = document.getElementById('password');
+            
+            if (togglePassword && password) {
+                togglePassword.addEventListener('click', function () {
+                    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                    password.setAttribute('type', type);
+                    this.classList.toggle('fa-eye');
+                    this.classList.toggle('fa-eye-slash');
+                });
+            }
         });
     </script>
 </body>
