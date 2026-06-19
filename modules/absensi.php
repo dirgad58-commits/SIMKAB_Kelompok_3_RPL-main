@@ -23,7 +23,7 @@
                 <button class="btn btn-secondary" id="btn-absen-manual" style="margin-top: 15px; width: 100%; border-color: var(--primary); color: var(--primary-light);"><i class="fa-solid fa-user-clock"></i> Input Absen Manual</button>
             </div>
             <?php endif; ?>
-            
+            <?php if (strtolower(trim($user_role)) !== 'admin'): ?>
             <div class="form-group" style="display: none;">
                 <select id="absensi-karyawan-select" class="form-control"></select>
             </div>
@@ -40,6 +40,7 @@
                 <p id="gps-distance" style="font-size: 11px; margin-top: 5px; color: var(--text-secondary);">Jarak dari kantor: Menghitung...</p>
                 <button id="btn-get-location" class="btn btn-secondary" style="font-size: 12px; padding: 4px 10px; margin-top: 5px;"><i class="fa-solid fa-satellite-dish"></i> Pindai Lokasi</button>
             </div>
+            <?php endif; ?>
         </div>
 
         <!-- Right Attendance Table Log -->

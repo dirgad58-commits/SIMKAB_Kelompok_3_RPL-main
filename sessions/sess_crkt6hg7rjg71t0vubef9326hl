@@ -1,1 +1,1 @@
-user_id|i:2;username|s:13:"budi.darmawan";role|s:3:"HRD";id_karyawan|s:6:"EMP005";nama_karyawan|s:19:"Budi Darmawan, M.M.";
+user_id|i:1;username|s:5:"admin";role|s:5:"Admin";id_karyawan|N;nama_karyawan|s:19:"Administrator Utama";
