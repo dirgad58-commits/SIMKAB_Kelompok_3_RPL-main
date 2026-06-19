@@ -67,10 +67,6 @@ class SIMKABCharts {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                animation: {
-                    duration: 3000,
-                    easing: 'easeOutQuart'
-                },
                 plugins: {
                     legend: {
                         position: 'bottom',
@@ -163,10 +159,6 @@ class SIMKABCharts {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                animation: {
-                    duration: 3000,
-                    easing: 'easeOutQuart'
-                },
                 plugins: {
                     legend: {
                         display: false
@@ -223,14 +215,10 @@ class SIMKABCharts {
     }
 
     /**
-     * Update Seluruh Grafik Sekaligus (dengan Delay agar animasi terlihat)
+     * Update Seluruh Grafik Sekaligus
      */
     static updateAllCharts() {
-        // Tunda rendering grafik selama 450ms (lebih dari durasi CSS fadeIn 0.4s)
-        // Agar canvas flexbox layout selesai dan Chart.js memutar animasi bawaannya
-        setTimeout(() => {
-            this.renderDivisiChart();
-            this.renderKehadiranChart();
-        }, 450);
+        this.renderDivisiChart();
+        this.renderKehadiranChart();
     }
 }
