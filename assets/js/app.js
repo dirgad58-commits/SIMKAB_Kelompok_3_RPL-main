@@ -257,7 +257,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (target === 'panel-dashboard') {
                 updateDashboardStats();
                 if (typeof SIMKABCharts !== 'undefined') {
-                    SIMKABCharts.updateAllCharts();
+                    // Delay chart rendering so its built-in animation doesn't get hidden by the tab transition
+                    setTimeout(() => {
+                        SIMKABCharts.updateAllCharts();
+                    }, 400);
                 }
             } else {
                 renderModuleData(target);
