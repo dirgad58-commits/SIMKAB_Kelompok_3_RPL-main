@@ -518,8 +518,8 @@ body::after {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* Stat Card Grid */
@@ -2341,14 +2341,37 @@ footer.landing-footer p {
 /* Apply to Table Rows with Stagger */
 .data-table tbody tr {
     opacity: 0;
-    animation: slideInRightStagger 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slideInRightStagger 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .data-table tbody tr:nth-child(1) { animation-delay: 0.05s; }
 .data-table tbody tr:nth-child(2) { animation-delay: 0.10s; }
 .data-table tbody tr:nth-child(3) { animation-delay: 0.15s; }
 .data-table tbody tr:nth-child(4) { animation-delay: 0.20s; }
 .data-table tbody tr:nth-child(5) { animation-delay: 0.25s; }
-.data-table tbody tr:nth-child(n+6) { animation-delay: 0.30s; }
+.data-table tbody tr:nth-child(6) { animation-delay: 0.30s; }
+.data-table tbody tr:nth-child(7) { animation-delay: 0.35s; }
+.data-table tbody tr:nth-child(8) { animation-delay: 0.40s; }
+.data-table tbody tr:nth-child(n+9) { animation-delay: 0.45s; }
+
+/* Action bars and Filters Stagger */
+.action-bar, .filter-section {
+    opacity: 0;
+    animation: fadeInUpStagger 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.1s;
+}
+
+/* Badges Pop-In Effect */
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.5); }
+    70% { transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+.status-badge {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+}
+.status-badge.hadir, .status-badge.aktif, .status-badge.disetujui { animation-delay: 0.3s; }
+.status-badge.izin, .status-badge.sakit, .status-badge.menunggu { animation-delay: 0.4s; }
+.status-badge.alpa, .status-badge.cuti, .status-badge.ditolak { animation-delay: 0.5s; }
 
 /* Apply to Announcement Cards */
 .announcement-card {
