@@ -2360,6 +2360,24 @@ footer.landing-footer p {
 .announcement-card:nth-child(n+3) { animation-delay: 0.3s; }
 
 /* Smooth button active state (click effect) */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
 .btn:active {
     transform: scale(0.95) !important;
+}
+
+/* JS Driven Complex Ripple Effect */
+.js-ripple-effect {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: rippleAnim 0.6s linear forwards;
+}
+@keyframes rippleAnim {
+    0% { width: 0; height: 0; opacity: 0.6; }
+    100% { width: 400px; height: 400px; opacity: 0; }
 }

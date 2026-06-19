@@ -332,6 +332,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. FEATURE 1: DASHBOARD STATS CALCULATOR
     // ==========================================================================
     
+    function animateValue(obj, start, end, duration) {
+        if (!obj) return;
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            // Easing out cubic
+            const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+            obj.textContent = Math.floor(easeOutProgress * (end - start) + start);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                obj.textContent = end;
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
     function updateDashboardStats() {
         const karyawan = SIMKABData.getKaryawan();
         const absensi = SIMKABData.getAbsensi();
@@ -340,21 +358,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 1. Total Karyawan Aktif
         const activeKaryawan = karyawan.filter(e => e.status === 'Aktif').length;
-        document.getElementById('stat-total-karyawan').textContent = activeKaryawan;
+        animateValue(document.getElementById('stat-total-karyawan'), 0, activeKaryawan, 1500);
 
         // 2. Hadir Hari Ini (2026-05-22 sesuai local time mock)
         const todayStr = '2026-05-22';
         const presentToday = absensi.filter(a => a.tanggal === todayStr && a.status === 'Hadir').length;
-        document.getElementById('stat-hadir-hari-ini').textContent = presentToday;
+        animateValue(document.getElementById('stat-hadir-hari-ini'), 0, presentToday, 1500);
 
         // 3. Karyawan Cuti Aktif (Telah Disetujui)
         const activeCuti = cuti.filter(c => c.status === 'Disetujui').length;
-        document.getElementById('stat-karyawan-cuti').textContent = activeCuti;
+        animateValue(document.getElementById('stat-karyawan-cuti'), 0, activeCuti, 1500);
 
         // 4. Pengumuman Prioritas Penting
         const importantAnnounce = pengumuman.filter(p => p.kategori === 'Penting').length;
-        document.getElementById('stat-pengumuman-baru').textContent = importantAnnounce;
+        animateValue(document.getElementById('stat-pengumuman-baru'), 0, importantAnnounce, 1500);
     }
+
+    // JS Complex Animation: Global Ripple Effect
+    document.addEventListener('click', function(e) {
+        const target = e.target.closest('.btn');
+        if (target) {
+            let ripple = document.createElement('span');
+            ripple.classList.add('js-ripple-effect');
+            
+            let rect = target.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
+            
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            
+            target.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        }
+    });
 
     // ==========================================================================
     // 5. MODAL MANAGEMENT SYSTEM
