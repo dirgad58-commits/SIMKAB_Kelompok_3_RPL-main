@@ -889,15 +889,16 @@ body::after {
     background-color: rgba(2, 6, 23, 0.85);
     backdrop-filter: blur(8px);
     z-index: 1000;
-    display: none;
+    visibility: hidden;
+    display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal-overlay.active {
-    display: flex;
+    visibility: visible;
     opacity: 1;
 }
 
