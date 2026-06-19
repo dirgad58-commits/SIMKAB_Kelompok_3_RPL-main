@@ -11,9 +11,15 @@
             
             <?php if (strtolower(trim($user_role)) !== 'karyawan'): ?>
             <div class="admin-notice" style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; text-align: center; border: 1px dashed var(--border-color);">
-                <i class="fa-solid fa-user-shield" style="font-size: 32px; color: var(--warning); margin-bottom: 10px;"></i>
-                <h3 style="font-size: 14px; color: var(--text-primary); margin-bottom: 5px;">Mode Administrator</h3>
-                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">Anda memiliki akses HRD. Gunakan tombol di bawah ini untuk menginput absen karyawan lain secara manual.</p>
+                <?php if (strtolower(trim($user_role)) === 'admin'): ?>
+                    <i class="fa-solid fa-user-shield" style="font-size: 32px; color: var(--warning); margin-bottom: 10px;"></i>
+                    <h3 style="font-size: 14px; color: var(--text-primary); margin-bottom: 5px;">Mode Super Admin</h3>
+                    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">Anda memiliki hak akses tertinggi. Gunakan fungsi ini untuk melakukan intervensi atau koreksi data absensi seluruh karyawan jika diperlukan.</p>
+                <?php else: ?>
+                    <i class="fa-solid fa-user-tie" style="font-size: 32px; color: #1abc9c; margin-bottom: 10px;"></i>
+                    <h3 style="font-size: 14px; color: var(--text-primary); margin-bottom: 5px;">Mode HRD (Human Resources)</h3>
+                    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">Sebagai staf HRD, Anda memiliki wewenang untuk mencatat kehadiran manual bagi karyawan yang mengalami kendala teknis.</p>
+                <?php endif; ?>
                 <button class="btn btn-secondary" id="btn-absen-manual" style="margin-top: 15px; width: 100%; border-color: var(--primary); color: var(--primary-light);"><i class="fa-solid fa-user-clock"></i> Input Absen Manual</button>
             </div>
             <?php endif; ?>
