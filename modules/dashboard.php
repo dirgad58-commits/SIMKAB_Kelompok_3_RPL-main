@@ -29,7 +29,7 @@
             </div>
             <div class="stat-card">
                 <div class="stat-info">
-                    <h3>Peringatan Sistem</h3>
+                    <h3>Pengumuman Penting</h3>
                     <div class="stat-value" id="stat-pengumuman-baru">2</div>
                 </div>
                 <div class="stat-icon" style="color: var(--danger);"><i class="fa-solid fa-triangle-exclamation"></i></div>
