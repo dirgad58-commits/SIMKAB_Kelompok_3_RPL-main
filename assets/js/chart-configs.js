@@ -232,10 +232,14 @@ class SIMKABCharts {
     }
 
     /**
-     * Update Seluruh Grafik Sekaligus
+     * Update Seluruh Grafik Sekaligus (dengan Delay agar animasi terlihat)
      */
     static updateAllCharts() {
-        this.renderDivisiChart();
-        this.renderKehadiranChart();
+        // Tunda rendering grafik selama 300ms agar animasi transisi halaman selesai dulu
+        // Dengan begitu, animasi internal Chart.js (staggered bars & rotating doughnut) akan terlihat jelas
+        setTimeout(() => {
+            this.renderDivisiChart();
+            this.renderKehadiranChart();
+        }, 300);
     }
 }
