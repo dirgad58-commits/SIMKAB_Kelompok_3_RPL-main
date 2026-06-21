@@ -497,32 +497,56 @@ try {
         </div>
     </section>
 
-    <footer class="site-footer" id="tentang-kami">
+    <footer class="site-footer" id="tentang-kami" style="background: #0f172a; color: #e2e8f0; border-top: none; padding-top: 80px;">
         <div class="footer-grid">
-            <div>
-                <div class="brand-logo footer-brand">
-                    <div class="brand-text" style="font-size: 24px; margin-bottom: 16px;">
-                        SIMKAB ENTERPRISE
+            <div style="padding-right: 20px;">
+                <div class="brand-logo footer-brand" style="color: #ffffff; margin-bottom: 24px;">
+                    <div class="brand-icon" style="color: var(--primary);"><i class="fa-solid fa-layer-group"></i></div>
+                    <div class="brand-text" style="font-size: 26px; font-weight: 800; letter-spacing: -0.5px;">
+                        SIMKAB <span style="color: var(--primary);">ENTERPRISE</span>
                     </div>
                 </div>
-                <p class="footer-desc" style="line-height: 1.6;"><strong>Tentang Aplikasi:</strong><br>Platform Sistem Informasi Manajemen Karyawan (SIMKAB) dirancang khusus untuk memenuhi standar ketat tata kelola SDM industri perbankan. Mengotomatisasi seluruh siklus mulai dari absensi biometrik, manajemen cuti, hingga kalkulasi <em>payroll</em> yang presisi dan transparan.</p>
+                <p class="footer-desc" style="line-height: 1.8; color: #94a3b8; font-size: 15px; margin-bottom: 30px; max-width: 100%;">
+                    Platform Sistem Informasi Manajemen Karyawan (SIMKAB) dirancang khusus untuk memenuhi standar ketat tata kelola SDM industri perbankan. Mengotomatisasi seluruh siklus mulai dari absensi biometrik, manajemen cuti, hingga kalkulasi <em>payroll</em> yang presisi dan transparan.
+                </p>
+                <div style="display: flex; gap: 16px;">
+                    <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='var(--primary)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#cbd5e1';"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='var(--primary)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#cbd5e1';"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='var(--primary)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#cbd5e1';"><i class="fa-brands fa-github"></i></a>
+                </div>
             </div>
             <div class="footer-info">
-                <h4 style="color: var(--text-primary); font-size: 16px; margin-bottom: 20px;">Informasi Perusahaan</h4>
-                <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Kami adalah pionir pengembang infrastruktur digital korporasi yang berdedikasi menciptakan ekosistem kerja digital. Misi kami adalah memberdayakan departemen HR agar dapat fokus pada pengembangan talenta, sementara sistem kami menangani seluruh beban kerja administratif secara otomatis dan aman.</p>
-            </div>
-            <div class="footer-info">
-                <h4 style="color: var(--text-primary); font-size: 16px; margin-bottom: 20px;">Kontak & Lokasi</h4>
-                <p style="color: var(--text-muted); font-size: 14px; line-height: 1.8;">
-                    <i class="fa-solid fa-building" style="width: 20px; color: var(--primary);"></i> Gedung SIMKAB Tower Lt. 12<br>
-                    <span style="padding-left: 24px;">Jl. Jend. Sudirman Kav. 52, Jakarta</span><br>
-                    <i class="fa-solid fa-envelope" style="width: 20px; color: var(--primary); margin-top: 8px;"></i> cs@simkab.co.id<br>
-                    <i class="fa-solid fa-phone" style="width: 20px; color: var(--primary); margin-top: 8px;"></i> (021) 1500-888
+                <h4 style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 24px; position: relative; padding-bottom: 12px;">
+                    Informasi Perusahaan
+                    <span style="content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--primary); border-radius: 2px;"></span>
+                </h4>
+                <p style="color: #94a3b8; font-size: 15px; line-height: 1.8;">
+                    Kami adalah pionir pengembang infrastruktur digital korporasi yang berdedikasi menciptakan ekosistem kerja modern. Misi utama kami adalah memberdayakan departemen HR agar dapat fokus sepenuhnya pada pengembangan talenta, sementara sistem cerdas kami menangani seluruh beban administratif dengan akurasi tinggi dan keamanan terjamin.
                 </p>
             </div>
+            <div class="footer-info">
+                <h4 style="color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 24px; position: relative; padding-bottom: 12px;">
+                    Kontak & Lokasi
+                    <span style="content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--primary); border-radius: 2px;"></span>
+                </h4>
+                <ul style="list-style: none; padding: 0; margin: 0; color: #94a3b8; font-size: 15px; line-height: 2;">
+                    <li style="display: flex; align-items: flex-start; margin-bottom: 16px;">
+                        <i class="fa-solid fa-building" style="color: var(--primary); font-size: 18px; margin-right: 16px; margin-top: 4px; width: 20px; text-align: center;"></i>
+                        <span>Gedung SIMKAB Tower Lt. 12<br>Jl. Jend. Sudirman Kav. 52<br>Jakarta Selatan, 12190</span>
+                    </li>
+                    <li style="display: flex; align-items: center; margin-bottom: 16px;">
+                        <i class="fa-solid fa-envelope" style="color: var(--primary); font-size: 18px; margin-right: 16px; width: 20px; text-align: center;"></i>
+                        <span>cs@simkab.co.id</span>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <i class="fa-solid fa-phone" style="color: var(--primary); font-size: 18px; margin-right: 16px; width: 20px; text-align: center;"></i>
+                        <span>(021) 1500-888</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 Bank Terdaftar dan diawasi oleh Otoritas Jasa Keuangan (OJK).
+        <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; margin-top: 40px; color: #64748b;">
+            &copy; <?php echo date("Y"); ?> SIMKAB Enterprise. Sistem Informasi Terdaftar dan Diawasi secara Internal.
         </div>
     </footer>
 
