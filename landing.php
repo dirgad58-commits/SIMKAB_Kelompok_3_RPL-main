@@ -335,69 +335,7 @@ try {
     </section>
 
 
-        <!-- Formulir Lamaran -->
-            <!-- Karir / Rekrutmen Section -->
-    <section class="career-section" id="karir" style="padding: 100px 40px; background: var(--bg-card-solid); border-top: 1px solid var(--border-color);">
-        <div class="section-header">
-            <h2>Peluang Rekrutmen & Talenta</h2>
-            <p>Kami mencari individu terbaik untuk membangun inovasi digital dan ekosistem perbankan di Sulawesi Tenggara.</p>
-        </div>
-        <div class="career-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; margin-bottom: 40px;">
-            
-            <div class="career-card" style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-                    <div>
-                        <h3 style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">IT System Administrator</h3>
-                        <div style="display: flex; gap: 12px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap;">
-                            <span><i class="fa-solid fa-location-dot"></i> Kantor Pusat (Kendari)</span>
-                            <span><i class="fa-solid fa-briefcase"></i> Penuh Waktu</span>
-                        </div>
-                    </div>
-                </div>
-                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">Bertanggung jawab mengelola infrastruktur server, keamanan database, dan uptime sistem SIMKAB.</p>
-                <button class="btn-secondary-large btn-apply" data-posisi="IT System Administrator" style="width: 100%; justify-content: center; padding: 12px; font-size: 14px; background: var(--bg-card); color: var(--primary); border-color: var(--primary);">Kirim Lamaran Pekerjaan</button>
-            </div>
-
-            <div class="career-card" style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-                    <div>
-                        <h3 style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">HR Business Partner</h3>
-                        <div style="display: flex; gap: 12px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap;">
-                            <span><i class="fa-solid fa-location-dot"></i> Cabang Baubau</span>
-                            <span><i class="fa-solid fa-briefcase"></i> Penuh Waktu</span>
-                        </div>
-                    </div>
-                </div>
-                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">Mengeksekusi strategi SDM cabang, menyaring talenta lokal Sultra, dan memantau KPI perbankan.</p>
-                <button class="btn-secondary-large btn-apply" data-posisi="HR Business Partner" style="width: 100%; justify-content: center; padding: 12px; font-size: 14px; background: var(--bg-card); color: var(--primary); border-color: var(--primary);">Kirim Lamaran Pekerjaan</button>
-            </div>
-
-        </div>
-
-        <!-- Formulir Lamaran -->
-        <div class="apply-modal" id="apply-modal">
-            <h3 style="margin-bottom: 24px; color: var(--text-primary); font-size: 24px;">Formulir Aplikasi: <br><span id="job-title-display" style="color: var(--primary);">Posisi</span></h3>
-            <div id="apply-alert" style="display: none; background: var(--success-glow); color: var(--success); padding: 16px; border-radius: 8px; margin-bottom: 24px; font-size: 14px; font-weight: 600; border: 1px solid var(--success);"></div>
-
-            <form id="apply-form">
-                <input type="hidden" name="posisi" id="posisi-input">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                    <input type="text" name="nama" class="input-field" placeholder="Nama Lengkap KTP" required>
-                    <input type="email" name="email" class="input-field" placeholder="Alamat Email Aktif" required>
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                    <input type="tel" name="telepon" class="input-field" placeholder="Nomor WhatsApp" required>
-                    <input type="url" name="cv_link" class="input-field" placeholder="Tautan LinkedIn atau Drive CV" required>
-                </div>
-                <textarea name="pesan" class="input-field" placeholder="Ceritakan singkat pencapaian terbaik Anda..." rows="4"></textarea>
-                
-                <div style="display: flex; gap: 16px; justify-content: flex-end; margin-top: 10px;">
-                    <button type="button" class="btn-secondary-large" id="close-modal" style="padding: 12px 24px; font-size: 14px;">Tutup</button>
-                    <button type="submit" class="btn-primary-large" id="submit-apply" style="padding: 12px 24px; font-size: 14px;">Kirim Berkas Lengkap</button>
-                </div>
-            </form>
-        </div>
-    </section>    <!-- NEW SECTION: TIM PENGEMBANG -->
+    <!-- NEW SECTION: TIM PENGEMBANG -->
     <section class="dev-section" id="tim-pengembang">
         <div class="section-header">
             <h2>Tim Pengembang Sistem</h2>

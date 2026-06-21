@@ -82,29 +82,6 @@ try {
             }
             break;
 
-        case 'apply_job':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $nama = isset($_POST['nama']) ? trim($_POST['nama']) : '';
-                $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-                $telepon = isset($_POST['telepon']) ? trim($_POST['telepon']) : '';
-                $posisi = isset($_POST['posisi']) ? trim($_POST['posisi']) : '';
-                $cv_link = isset($_POST['cv_link']) ? trim($_POST['cv_link']) : '';
-                $pesan = isset($_POST['pesan']) ? trim($_POST['pesan']) : '';
-
-                if (empty($nama) || empty($email) || empty($telepon) || empty($posisi) || empty($cv_link)) {
-                    throw new Exception("Seluruh field wajib diisi dengan lengkap.");
-                }
-
-                $stmt = $pdo->prepare("INSERT INTO pelamar (nama, email, telepon, posisi, cv_link, pesan) VALUES (?, ?, ?, ?, ?, ?)");
-                $stmt->execute([$nama, $email, $telepon, $posisi, $cv_link, $pesan]);
-
-                $response = [
-                    "status" => "success",
-                    "message" => "Aplikasi lamaran untuk posisi '{$posisi}' berhasil dikirim secara online! Tim HRD kami akan menghubungi Anda segera."
-                ];
-            }
-            break;
-
         case 'get_dashboard_stats':
             if (strtolower(trim($user_role)) === 'karyawan') {
                 // Statistik Khusus Karyawan (ESS)
@@ -290,28 +267,24 @@ try {
                 
                 if (in_array($fileExt, $allowed)) {
                     if ($fileError === 0) {
-                        if ($fileSize < 10000000) { // 10MB limit
+                        if ($fileSize < 5000000) { // 5MB limit
                             $newFileName = "profile_" . $id_karyawan_session . "_" . time() . "." . $fileExt;
                             $fileDestination = 'uploads/' . $newFileName;
                             
-                            if (!is_dir('uploads')) {
-                                @mkdir('uploads', 0777, true);
-                            }
-                            
-                            if (@move_uploaded_file($fileTmpName, $fileDestination)) {
+                            if (move_uploaded_file($fileTmpName, $fileDestination)) {
                                 // Update DB
                                 $stmt = $pdo->prepare("UPDATE karyawan SET foto = ? WHERE id = ?");
                                 $stmt->execute([$fileDestination, $id_karyawan_session]);
                                 
                                 echo json_encode(["status" => "success", "message" => "Foto profil berhasil diperbarui", "path" => $fileDestination]);
                             } else {
-                                echo json_encode(["status" => "error", "message" => "Gagal menyimpan file ke folder uploads."]);
+                                echo json_encode(["status" => "error", "message" => "Gagal menyimpan file."]);
                             }
                         } else {
-                            echo json_encode(["status" => "error", "message" => "File terlalu besar (Maks 10MB)."]);
+                            echo json_encode(["status" => "error", "message" => "File terlalu besar (Maks 5MB)."]);
                         }
                     } else {
-                        echo json_encode(["status" => "error", "message" => "Terjadi kesalahan upload file. (Error Code: " . $fileError . ")"]);
+                        echo json_encode(["status" => "error", "message" => "Terjadi kesalahan upload file."]);
                     }
                 } else {
                     echo json_encode(["status" => "error", "message" => "Hanya file JPG dan PNG yang diizinkan."]);
