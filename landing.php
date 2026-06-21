@@ -244,7 +244,7 @@ try {
             <a href="#fitur">Fitur Utama</a>
             <a href="#tim-pengembang">Tim Pengembang</a>
             <a href="#faq">Pusat Bantuan</a>
-            <a href="#karir">Karir</a>
+            <a href="#footer">Hubungi Kami</a>
         </div>
         <div class="nav-links">
             <button class="theme-switch-btn" id="theme-btn" style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 18px; padding: 4px;">
@@ -439,7 +439,7 @@ try {
         </div>
     </section>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="footer">
         <div class="footer-grid">
             <div>
                 <div class="brand-logo footer-brand">
@@ -455,7 +455,7 @@ try {
                     <li><a href="#">Tentang Kami</a></li>
                     <li><a href="#">Tata Kelola</a></li>
                     <li><a href="#">Hubungan Investor</a></li>
-                    <li><a href="#karir">Karir</a></li>
+                    <li><a href="#">Hubungi Kami</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -495,73 +495,6 @@ try {
                 document.documentElement.setAttribute('data-theme', currentTheme);
                 localStorage.setItem('simkab-theme', currentTheme);
                 applyTheme(currentTheme);
-            });
-
-            // Career Form Logic
-            const jobCards = document.querySelectorAll('.btn-apply');
-            const applyModal = document.getElementById('apply-modal');
-            const jobDisplay = document.getElementById('job-title-display');
-            const posInput = document.getElementById('posisi-input');
-            const closeBtn = document.getElementById('close-modal');
-            const applyForm = document.getElementById('apply-form');
-            const alertBox = document.getElementById('apply-alert');
-            const submitBtn = document.getElementById('submit-apply');
-
-            jobCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    const title = card.getAttribute('data-posisi');
-                    jobDisplay.textContent = title;
-                    posInput.value = title;
-                    applyModal.style.display = 'block';
-                    alertBox.style.display = 'none';
-                    applyModal.scrollIntoView({behavior: 'smooth', block: 'center'});
-                });
-            });
-
-            closeBtn.addEventListener('click', () => {
-                applyModal.style.display = 'none';
-                applyForm.reset();
-            });
-
-            applyForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Memproses Berkas...';
-                submitBtn.disabled = true;
-
-                const formData = new FormData(applyForm);
-                fetch('api.php?action=apply_job', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(res => res.json())
-                .then(data => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    
-                    if(data.status === 'success') {
-                        alertBox.textContent = data.message;
-                        alertBox.className = '';
-                        alertBox.style.display = 'block';
-                        alertBox.style.background = 'var(--success-glow)';
-                        alertBox.style.color = 'var(--success)';
-                        applyForm.reset();
-                    } else {
-                        alertBox.textContent = data.message;
-                        alertBox.style.display = 'block';
-                        alertBox.style.background = 'var(--danger-glow)';
-                        alertBox.style.color = 'var(--danger)';
-                        alertBox.style.border = '1px solid var(--danger)';
-                    }
-                })
-                .catch(err => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    alertBox.textContent = 'Terjadi kesalahan jaringan pada server.';
-                    alertBox.style.display = 'block';
-                    alertBox.style.background = 'var(--danger-glow)';
-                    alertBox.style.color = 'var(--danger)';
-                });
             });
 
             // FAQ Logic
