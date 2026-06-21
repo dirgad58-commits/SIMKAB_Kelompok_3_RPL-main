@@ -501,7 +501,7 @@ try {
         <div class="footer-grid" style="grid-template-columns: 1.2fr 1fr 1fr; gap: 40px;">
             <div style="padding-right: 20px;">
                 <div class="brand-logo footer-brand" style="color: #ffffff; margin-bottom: 24px;">
-                    <div class="brand-icon" style="color: var(--primary);"><i class="fa-solid fa-layer-group"></i></div>
+                    <div class="brand-icon"><i class="fa-solid fa-layer-group"></i></div>
                     <div class="brand-text" style="font-size: 26px; font-weight: 800; letter-spacing: -0.5px;">
                         SIMKAB <span style="color: var(--primary);">ENTERPRISE</span>
                     </div>
