@@ -407,7 +407,7 @@ try {
             <div class="dev-card leader">
                 <div class="dev-avatar">
                     <span class="dev-initial">D</span>
-                    <img src="assets/img/dirga.jpg" alt="Dirga" onerror="this.style.display='none'">
+                    <img src="assets/img/dirga.jpeg" alt="Dirga" onerror="this.style.display='none'">
                 </div>
                 <div class="dev-badge">Ketua</div>
                 <h3>La Ode Muhamad Dirga</h3>
