@@ -290,24 +290,28 @@ try {
                 
                 if (in_array($fileExt, $allowed)) {
                     if ($fileError === 0) {
-                        if ($fileSize < 5000000) { // 5MB limit
+                        if ($fileSize < 10000000) { // 10MB limit
                             $newFileName = "profile_" . $id_karyawan_session . "_" . time() . "." . $fileExt;
                             $fileDestination = 'uploads/' . $newFileName;
                             
-                            if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                            if (!is_dir('uploads')) {
+                                @mkdir('uploads', 0777, true);
+                            }
+                            
+                            if (@move_uploaded_file($fileTmpName, $fileDestination)) {
                                 // Update DB
                                 $stmt = $pdo->prepare("UPDATE karyawan SET foto = ? WHERE id = ?");
                                 $stmt->execute([$fileDestination, $id_karyawan_session]);
                                 
                                 echo json_encode(["status" => "success", "message" => "Foto profil berhasil diperbarui", "path" => $fileDestination]);
                             } else {
-                                echo json_encode(["status" => "error", "message" => "Gagal menyimpan file."]);
+                                echo json_encode(["status" => "error", "message" => "Gagal menyimpan file ke folder uploads."]);
                             }
                         } else {
-                            echo json_encode(["status" => "error", "message" => "File terlalu besar (Maks 5MB)."]);
+                            echo json_encode(["status" => "error", "message" => "File terlalu besar (Maks 10MB)."]);
                         }
                     } else {
-                        echo json_encode(["status" => "error", "message" => "Terjadi kesalahan upload file."]);
+                        echo json_encode(["status" => "error", "message" => "Terjadi kesalahan upload file. (Error Code: " . $fileError . ")"]);
                     }
                 } else {
                     echo json_encode(["status" => "error", "message" => "Hanya file JPG dan PNG yang diizinkan."]);
