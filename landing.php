@@ -280,10 +280,10 @@ try {
     </header>
 
     <!-- Statistik Sistem (New Modern Banner) -->
-    <section id="informasi" style="padding: 60px 20px; background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-card-solid) 100%);">
+    <section id="informasi" style="padding: 60px 20px; background: transparent;">
         <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
             
-            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: 32px 24px; text-align: center; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; transition: var(--transition-smooth);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='var(--shadow-glow)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-soft)';">
                 <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: var(--primary);"><i class="fa-solid fa-users"></i></div>
                 <div style="width: 60px; height: 60px; background: var(--primary-glow); color: var(--primary); font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
                     <i class="fa-solid fa-user-tie"></i>
@@ -292,7 +292,7 @@ try {
                 <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Karyawan Aktif</div>
             </div>
 
-            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: 32px 24px; text-align: center; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; transition: var(--transition-smooth);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='var(--shadow-glow)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-soft)';">
                 <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: var(--success);"><i class="fa-solid fa-building"></i></div>
                 <div style="width: 60px; height: 60px; background: var(--success-glow); color: var(--success); font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
                     <i class="fa-solid fa-sitemap"></i>
@@ -301,18 +301,18 @@ try {
                 <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Divisi & Departemen</div>
             </div>
 
-            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #f59e0b;"><i class="fa-solid fa-graduation-cap"></i></div>
-                <div style="width: 60px; height: 60px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: 32px 24px; text-align: center; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; transition: var(--transition-smooth);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='var(--shadow-glow)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-soft)';">
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: var(--warning);"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div style="width: 60px; height: 60px; background: rgba(245, 158, 11, 0.1); color: var(--warning); font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
                     <i class="fa-solid fa-certificate"></i>
                 </div>
                 <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $total_pelatihan; ?></div>
                 <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Program Sertifikasi</div>
             </div>
 
-            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #8b5cf6;"><i class="fa-solid fa-chart-line"></i></div>
-                <div style="width: 60px; height: 60px; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: 32px 24px; text-align: center; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; transition: var(--transition-smooth);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='var(--shadow-glow)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-soft)';">
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: var(--accent);"><i class="fa-solid fa-chart-line"></i></div>
+                <div style="width: 60px; height: 60px; background: var(--accent-glow); color: var(--accent); font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
                     <i class="fa-solid fa-star"></i>
                 </div>
                 <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $avg_kinerja_format; ?></div>
