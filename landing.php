@@ -244,7 +244,6 @@ try {
             <a href="#fitur">Fitur Utama</a>
             <a href="#tim-pengembang">Tim Pengembang</a>
             <a href="#faq">Pusat Bantuan</a>
-            <a href="#footer">Hubungi Kami</a>
         </div>
         <div class="nav-links">
             <button class="theme-switch-btn" id="theme-btn" style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 18px; padding: 4px;">
@@ -273,6 +272,28 @@ try {
             </a>
         </div>
     </header>
+
+    <!-- Statistik Sistem (New Banner) -->
+    <div style="background: var(--bg-card-solid); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 40px 20px;">
+        <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; text-align: center;">
+            <div>
+                <div style="font-size: 36px; font-weight: 800; color: var(--primary); margin-bottom: 8px;"><?php echo $total_karyawan; ?>+</div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Karyawan Aktif</div>
+            </div>
+            <div>
+                <div style="font-size: 36px; font-weight: 800; color: var(--primary); margin-bottom: 8px;"><?php echo $total_divisi; ?></div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Divisi Tersedia</div>
+            </div>
+            <div>
+                <div style="font-size: 36px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">12</div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Modul Terintegrasi</div>
+            </div>
+            <div>
+                <div style="font-size: 36px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">99.9%</div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Uptime Server</div>
+            </div>
+        </div>
+    </div>
 
     <!-- Fitur Section -->
     <section class="features-section" id="fitur" style="padding: 100px 40px; background: var(--bg-main);">
@@ -455,7 +476,6 @@ try {
                     <li><a href="#">Tentang Kami</a></li>
                     <li><a href="#">Tata Kelola</a></li>
                     <li><a href="#">Hubungan Investor</a></li>
-                    <li><a href="#">Hubungi Kami</a></li>
                 </ul>
             </div>
             <div class="footer-links">
