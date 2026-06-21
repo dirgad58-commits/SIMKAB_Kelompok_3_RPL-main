@@ -170,7 +170,7 @@ try {
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08); cursor: default;
         }
         .dev-card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--primary); box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.25); z-index: 10; }
-        .dev-avatar { width: 180px; height: 180px; border-radius: 50%; background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 56px; margin: 0 auto 24px; font-weight: 800; border: 4px solid var(--primary); text-transform: uppercase; overflow: hidden; position: relative; box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3); transition: transform 0.4s; }
+        .dev-avatar { width: 220px; height: 220px; border-radius: 50%; background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 56px; margin: 0 auto 24px; font-weight: 800; border: 4px solid var(--primary); text-transform: uppercase; overflow: hidden; position: relative; box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3); transition: transform 0.4s; }
         .dev-card:hover .dev-avatar { transform: scale(1.1) rotate(5deg); }
         .dev-avatar img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2; transition: transform 0.4s; }
         .dev-card:hover .dev-avatar img { transform: scale(1.1); }
