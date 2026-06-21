@@ -532,7 +532,7 @@ try {
                 <ul style="list-style: none; padding: 0; margin: 0; color: #94a3b8; font-size: 15px; line-height: 2;">
                     <li style="display: flex; align-items: flex-start; margin-bottom: 16px;">
                         <i class="fa-solid fa-building" style="color: var(--primary); font-size: 18px; margin-right: 16px; margin-top: 4px; width: 20px; text-align: center;"></i>
-                        <span>Gedung SIMKAB Tower Lt. 12<br>Jl. Jend. Sudirman Kav. 52<br>Jakarta Selatan, 12190</span>
+                        <span>Gedung FST UHO Lt. 3<br>Jl. H.E.A. Mokodompit, Anduonohu<br>Kendari, Sulawesi Tenggara 93232</span>
                     </li>
                     <li style="display: flex; align-items: center; margin-bottom: 16px;">
                         <i class="fa-solid fa-envelope" style="color: var(--primary); font-size: 18px; margin-right: 16px; width: 20px; text-align: center;"></i>
