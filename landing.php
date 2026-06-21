@@ -419,7 +419,7 @@ try {
                     <img src="assets/img/dev_fadhilah.jpg" alt="Fadhilah" onerror="this.style.display='none'">
                 </div>
                 <h3>Fadhilah Fajar R.H</h3>
-                <p>E1E124034</p>
+                <p>E1E124033</p>
             </div>
             <div class="dev-card">
                 <div class="dev-avatar">
