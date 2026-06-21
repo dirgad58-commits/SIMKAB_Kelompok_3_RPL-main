@@ -407,7 +407,7 @@ try {
             <div class="dev-card leader">
                 <div class="dev-avatar">
                     <span class="dev-initial">D</span>
-                    <img src="assets/img/dirga.jpeg" alt="Dirga" onerror="this.style.display='none'">
+                    <img src="assets/img/dirga_hd.jpeg" alt="Dirga" onerror="this.style.display='none'">
                 </div>
                 <div class="dev-badge">Ketua</div>
                 <h3>La Ode Muhamad Dirga</h3>
@@ -416,7 +416,7 @@ try {
             <div class="dev-card">
                 <div class="dev-avatar">
                     <span class="dev-initial">F</span>
-                    <img src="assets/img/fadhillah.jpeg" alt="Fadhilah" onerror="this.style.display='none'">
+                    <img src="assets/img/fadhillah_hd.jpeg" alt="Fadhilah" onerror="this.style.display='none'">
                 </div>
                 <h3>Fadhilah Fajar R.H</h3>
                 <p>E1E124033</p>
@@ -424,7 +424,7 @@ try {
             <div class="dev-card">
                 <div class="dev-avatar">
                     <span class="dev-initial">G</span>
-                    <img src="assets/img/gilang.jpeg" alt="Gilang" onerror="this.style.display='none'">
+                    <img src="assets/img/gilang_hd.jpeg" alt="Gilang" onerror="this.style.display='none'">
                 </div>
                 <h3>Gilang Syah Fitrah R.</h3>
                 <p>E1E124037</p>
@@ -432,7 +432,7 @@ try {
             <div class="dev-card">
                 <div class="dev-avatar">
                     <span class="dev-initial">W</span>
-                    <img src="assets/img/indah.jpeg" alt="Wa Ode" onerror="this.style.display='none'">
+                    <img src="assets/img/indah_hd.jpeg" alt="Wa Ode" onerror="this.style.display='none'">
                 </div>
                 <h3>Wa Ode Indah Nur Ramadhani</h3>
                 <p>E1E124021</p>
@@ -440,7 +440,7 @@ try {
             <div class="dev-card">
                 <div class="dev-avatar">
                     <span class="dev-initial">L</span>
-                    <img src="assets/img/raihan.jpeg" alt="Muammar" onerror="this.style.display='none'">
+                    <img src="assets/img/raihan_hd.jpeg" alt="Muammar" onerror="this.style.display='none'">
                 </div>
                 <h3>La Ode Muammar Raihan S.</h3>
                 <p>E1E124063</p>
@@ -448,7 +448,7 @@ try {
             <div class="dev-card">
                 <div class="dev-avatar">
                     <span class="dev-initial">A</span>
-                    <img src="assets/img/asraf.jpeg" alt="Asraf" onerror="this.style.display='none'">
+                    <img src="assets/img/asraf_hd.jpeg" alt="Asraf" onerror="this.style.display='none'">
                 </div>
                 <h3>Asraf Falaj</h3>
                 <p>E1E124030</p>
