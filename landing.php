@@ -241,6 +241,7 @@ try {
             <div class="brand-text">SIMKAB</div>
         </a>
         <div class="nav-links">
+            <a href="#informasi">Informasi</a>
             <a href="#fitur">Fitur Utama</a>
             <a href="#tim-pengembang">Tim Pengembang</a>
             <a href="#faq">Pusat Bantuan</a>
@@ -273,27 +274,48 @@ try {
         </div>
     </header>
 
-    <!-- Statistik Sistem (New Banner) -->
-    <div style="background: var(--bg-card-solid); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 40px 20px;">
-        <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; text-align: center;">
-            <div>
-                <div style="font-size: 36px; font-weight: 800; color: var(--primary); margin-bottom: 8px;"><?php echo $total_karyawan; ?>+</div>
-                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Karyawan Aktif</div>
+    <!-- Statistik Sistem (New Modern Banner) -->
+    <section id="informasi" style="padding: 60px 20px; background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-card-solid) 100%);">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+            
+            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: var(--primary);"><i class="fa-solid fa-users"></i></div>
+                <div style="width: 60px; height: 60px; background: var(--primary-glow); color: var(--primary); font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $total_karyawan; ?></div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Karyawan Aktif</div>
             </div>
-            <div>
-                <div style="font-size: 36px; font-weight: 800; color: var(--primary); margin-bottom: 8px;"><?php echo $total_divisi; ?></div>
-                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Divisi Tersedia</div>
+
+            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: var(--success);"><i class="fa-solid fa-building"></i></div>
+                <div style="width: 60px; height: 60px; background: var(--success-glow); color: var(--success); font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
+                    <i class="fa-solid fa-sitemap"></i>
+                </div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $total_divisi; ?></div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Divisi & Departemen</div>
             </div>
-            <div>
-                <div style="font-size: 36px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">12</div>
-                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Modul Terintegrasi</div>
+
+            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #f59e0b;"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div style="width: 60px; height: 60px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">15</div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Kantor Cabang</div>
             </div>
-            <div>
-                <div style="font-size: 36px; font-weight: 800; color: var(--primary); margin-bottom: 8px;">99.9%</div>
-                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Uptime Server</div>
+
+            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #8b5cf6;"><i class="fa-solid fa-shield-halved"></i></div>
+                <div style="width: 60px; height: 60px; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">25+</div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Tahun Beroperasi</div>
             </div>
+            
         </div>
-    </div>
+    </section>
 
     <!-- Fitur Section -->
     <section class="features-section" id="fitur" style="padding: 100px 40px; background: var(--bg-main);">
