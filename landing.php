@@ -18,9 +18,13 @@ try {
     $pdo = new PDO("mysql:host=localhost;dbname=db_simkab;charset=utf8", "root", "");
     $total_karyawan = $pdo->query("SELECT COUNT(*) FROM karyawan")->fetchColumn() ?: 0;
     $total_divisi = $pdo->query("SELECT COUNT(DISTINCT divisi) FROM karyawan WHERE divisi != ''")->fetchColumn() ?: 0;
+    $total_hadir = $pdo->query("SELECT COUNT(*) FROM absensi WHERE status='Hadir'")->fetchColumn() ?: 0;
+    $total_cuti = $pdo->query("SELECT COUNT(*) FROM cuti WHERE status='Disetujui'")->fetchColumn() ?: 0;
 } catch (Exception $e) {
     $total_karyawan = 0;
     $total_divisi = 0;
+    $total_hadir = 0;
+    $total_cuti = 0;
 }
 ?>
 <!DOCTYPE html>
@@ -297,21 +301,21 @@ try {
             </div>
 
             <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #f59e0b;"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #f59e0b;"><i class="fa-solid fa-clock-rotate-left"></i></div>
                 <div style="width: 60px; height: 60px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
-                    <i class="fa-solid fa-building-columns"></i>
+                    <i class="fa-solid fa-calendar-check"></i>
                 </div>
-                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">15</div>
-                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Kantor Cabang</div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $total_hadir; ?></div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Total Rekam Kehadiran</div>
             </div>
 
             <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #8b5cf6;"><i class="fa-solid fa-shield-halved"></i></div>
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #8b5cf6;"><i class="fa-solid fa-plane-departure"></i></div>
                 <div style="width: 60px; height: 60px; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
-                    <i class="fa-solid fa-award"></i>
+                    <i class="fa-solid fa-umbrella-beach"></i>
                 </div>
-                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">25+</div>
-                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Tahun Beroperasi</div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $total_cuti; ?></div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Cuti Disetujui</div>
             </div>
             
         </div>
