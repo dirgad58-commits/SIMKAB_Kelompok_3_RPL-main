@@ -498,7 +498,7 @@ try {
     </section>
 
     <footer class="site-footer" id="tentang-kami" style="background: #0f172a; color: #e2e8f0; border-top: none; padding-top: 80px;">
-        <div class="footer-grid">
+        <div class="footer-grid" style="grid-template-columns: 1.2fr 1fr 1fr; gap: 40px;">
             <div style="padding-right: 20px;">
                 <div class="brand-logo footer-brand" style="color: #ffffff; margin-bottom: 24px;">
                     <div class="brand-icon" style="color: var(--primary);"><i class="fa-solid fa-layer-group"></i></div>
@@ -507,7 +507,7 @@ try {
                     </div>
                 </div>
                 <p class="footer-desc" style="line-height: 1.8; color: #94a3b8; font-size: 15px; margin-bottom: 30px; max-width: 100%;">
-                    Platform Sistem Informasi Manajemen Karyawan (SIMKAB) dirancang khusus untuk memenuhi standar ketat tata kelola SDM industri perbankan. Mengotomatisasi seluruh siklus mulai dari absensi biometrik, manajemen cuti, hingga kalkulasi <em>payroll</em> yang presisi dan transparan.
+                    Platform HRIS berstandar perbankan. Kami mengotomatisasi absensi, manajemen cuti, hingga kalkulasi <em>payroll</em> secara presisi, aman, dan transparan.
                 </p>
                 <div style="display: flex; gap: 16px;">
                     <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #cbd5e1; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='var(--primary)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#cbd5e1';"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -521,7 +521,7 @@ try {
                     <span style="content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--primary); border-radius: 2px;"></span>
                 </h4>
                 <p style="color: #94a3b8; font-size: 15px; line-height: 1.8;">
-                    Kami adalah pionir pengembang infrastruktur digital korporasi yang berdedikasi menciptakan ekosistem kerja modern. Misi utama kami adalah memberdayakan departemen HR agar dapat fokus sepenuhnya pada pengembangan talenta, sementara sistem cerdas kami menangani seluruh beban administratif dengan akurasi tinggi dan keamanan terjamin.
+                    Pionir penyedia infrastruktur HR digital. Kami membantu perusahaan agar dapat fokus pada pengembangan talenta, tanpa dipusingkan oleh beban administratif.
                 </p>
             </div>
             <div class="footer-info">
