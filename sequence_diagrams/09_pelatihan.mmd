@@ -1,0 +1,12 @@
+sequenceDiagram
+    actor A as Karyawan / Admin
+    participant FP as FormPelatihan
+    participant PC as PelatihanController
+    participant DP as DataPelatihan
+
+    A->>FP: Isi Pelatihan, Upload File & Submit()
+    FP->>PC: SubmitData(Data, File)
+    PC->>PC: UploadFileKeServer()
+    PC->>DP: SimpanDataSertifikasi()
+    DP-->>PC: Return: Data Tersimpan
+    PC-->>FP: Tampilkan Alert Sukses()

@@ -1,0 +1,14 @@
+sequenceDiagram
+    actor A as Admin
+    participant FM as FormMutasi
+    participant MC as MutasiController
+    participant DK as DataKaryawan
+    participant DM as DataMutasi
+
+    A->>FM: Pilih Jabatan Baru & Submit()
+    FM->>MC: ProsesMutasi()
+    MC->>DK: UpdateJabatanDanDivisi()
+    DK-->>MC: Return: Jabatan Diperbarui
+    MC->>DM: CatatRiwayatMutasi()
+    DM-->>MC: Return: Riwayat Tersimpan
+    MC-->>FM: Tampilkan Alert Sukses()

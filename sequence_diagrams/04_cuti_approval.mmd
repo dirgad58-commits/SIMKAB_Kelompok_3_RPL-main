@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor A as HRD / Admin
+    participant HC as HalamanDataCuti
+    participant CC as CutiController
+    participant DC as DataCuti
+    participant DK as DataKaryawan
+
+    A->>HC: Buka Tabel Cuti()
+    A->>HC: Klik "Setujui"()
+    HC->>CC: UpdateStatusCuti(IDCuti)
+    CC->>DC: UbahStatus("Disetujui")
+    DC-->>CC: Return: Status Terupdate
+    CC->>DK: KurangiSisaCuti()
+    DK-->>CC: Return: Kuota Terupdate
+    CC-->>HC: Tampilkan Alert Sukses()

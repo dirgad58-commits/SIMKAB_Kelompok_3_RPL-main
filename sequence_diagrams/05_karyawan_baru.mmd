@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor A as HRD / Admin
+    participant FK as FormKaryawan
+    participant KC as KaryawanController
+    participant DK as DataKaryawan
+    participant DU as DataUser
+
+    A->>FK: Input Data Karyawan & Klik Simpan()
+    FK->>KC: SubmitDataKaryawan()
+    KC->>KC: GenerateID() & GeneratePassword()
+    KC->>DK: InsertKaryawanBaru()
+    DK-->>KC: Return: Data Karyawan Tersimpan
+    KC->>DU: BuatAkunLoginKaryawan()
+    DU-->>KC: Return: Akun User Terbuat
+    KC-->>FK: Tampilkan Alert Sukses()

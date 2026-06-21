@@ -1,0 +1,13 @@
+sequenceDiagram
+    actor A as Karyawan
+    participant FA as FormAset
+    participant AC as AsetController
+    participant DA as DataAset
+
+    A->>FA: Pilih Aset & Ajukan Pinjaman()
+    FA->>AC: RequestPinjamAset()
+    AC->>DA: UpdateStatusAset("Dipinjam")
+    DA-->>AC: Return: Aset Diperbarui
+    AC->>DA: SimpanRiwayatPeminjaman()
+    DA-->>AC: Return: Riwayat Tersimpan
+    AC-->>FA: Tampilkan Alert Sukses()

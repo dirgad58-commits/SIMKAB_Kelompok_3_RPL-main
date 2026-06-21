@@ -1,0 +1,23 @@
+sequenceDiagram
+    actor A as Karyawan / HRD / Admin
+    participant FL as FormLogin
+    participant AC as AuthController
+    participant DU as DataUser
+
+    A->>FL: Buka Halaman Login()
+    A->>FL: Input Username & Password()
+    A->>FL: Klik "Login"()
+    FL->>AC: Verifikasi Akun(Username, Password)
+    AC->>DU: CekDataUser()
+    DU-->>AC: Return: Role Akun (Admin/HRD/Karyawan)
+    
+    alt [Role = Admin]
+        AC-->>FL: Set Session Admin
+        FL-->>A: Redirect Dashboard Admin()
+    else [Role = HRD]
+        AC-->>FL: Set Session HRD
+        FL-->>A: Redirect Dashboard HRD()
+    else [Role = Karyawan]
+        AC-->>FL: Set Session Karyawan
+        FL-->>A: Redirect Dashboard Karyawan()
+    end

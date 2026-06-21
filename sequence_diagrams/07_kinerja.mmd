@@ -1,0 +1,12 @@
+sequenceDiagram
+    actor A as HRD / Admin
+    participant FK as FormKinerja
+    participant KC as KinerjaController
+    participant DK as DataKinerja
+
+    A->>FK: Input Nilai KPI & Klik Simpan()
+    FK->>KC: SubmitNilaiKinerja()
+    KC->>KC: KalkulasiTotalSkor()
+    KC->>DK: SimpanPenilaian()
+    DK-->>KC: Return: Data Tersimpan
+    KC-->>FK: Tampilkan Alert Sukses()

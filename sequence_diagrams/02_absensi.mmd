@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor A as Karyawan
+    participant FA as FormAbsensi
+    participant BG as BrowserGPS
+    participant AC as AbsenController
+    participant DA as DataAbsensi
+
+    A->>FA: Klik "Pindai Lokasi"()
+    FA->>BG: Request Koordinat()
+    BG-->>FA: Return: Latitude & Longitude
+    A->>FA: Klik "Check In"()
+    FA->>AC: Submit(Lokasi, Waktu)
+    AC->>DA: SimpanDataAbsen()
+    DA-->>AC: Return: Berhasil Disimpan
+    AC-->>FA: Tampilkan Alert Sukses()

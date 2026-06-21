@@ -1,0 +1,20 @@
+sequenceDiagram
+    actor A as Karyawan
+    participant FC as FormCuti
+    participant CC as CutiController
+    participant DK as DataKaryawan
+    participant DC as DataCuti
+
+    A->>FC: Buka Menu Ajukan Cuti()
+    A->>FC: Isi Form & Klik Submit()
+    FC->>CC: Submit(Tanggal, Jenis, Alasan)
+    CC->>DK: CekSisaCuti(IDKaryawan)
+    DK-->>CC: Return: Sisa Kuota Cuti
+    
+    alt [Sisa Cuti Cukup]
+        CC->>DC: SimpanCuti("Pending")
+        DC-->>CC: Return: Pengajuan Disimpan
+        CC-->>FC: Tampilkan Alert Sukses()
+    else [Sisa Cuti Habis]
+        CC-->>FC: Tampilkan Alert Gagal (Cuti Habis)()
+    end
