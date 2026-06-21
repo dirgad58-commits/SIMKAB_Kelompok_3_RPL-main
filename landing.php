@@ -459,29 +459,38 @@ try {
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question">
-                    Apakah data pribadi saya aman di dalam sistem?
+                    Bagaimana cara melakukan proses Absensi (Clock In / Clock Out)?
                     <i class="fa-solid fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
-                    Tentu. Sistem ini dibangun dengan standar keamanan perbankan (enkripsi SSL 256-bit). Data pribadi, rekapan medis, hingga perhitungan gaji dilindungi ketat dan hanya dapat diakses oleh divisi terkait dengan hak akses khusus.
+                    Karyawan dapat masuk ke menu <strong>Absensi</strong> di dashboard utama setelah login. Sistem akan mencatat waktu kehadiran secara <em>real-time</em>. Jika Anda melakukan <em>Clock In</em> melewati jam masuk yang telah ditetapkan, status akan otomatis tercatat oleh sistem sebagai "Terlambat".
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    Bagaimana jika saya lupa kata sandi login?
+                    Apa saja syarat untuk mengajukan Cuti Tahunan melalui sistem?
                     <i class="fa-solid fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
-                    Anda dapat menghubungi tim IT Support internal (Ext. 112) atau menggunakan fitur Lupa Sandi pada layar Login (jika diaktifkan oleh admin). Permintaan reset sandi akan dikirim ke alamat surel (email) kantor yang terdaftar di database.
+                    Pengajuan cuti dilakukan melalui modul <strong>Cuti & Izin</strong>. Pastikan Anda masih memiliki sisa kuota cuti tahunan dan pengajuan wajib dilakukan minimal H-3 sebelum tanggal pelaksanaan. Status persetujuan (<em>Approve/Reject</em>) dari HRD atau Atasan dapat dipantau langsung dari layar portal Anda.
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    Apakah SIMKAB bisa diakses dari luar jaringan kantor?
+                    Kapan Slip Gaji bulanan terbit dan dapat diunduh?
                     <i class="fa-solid fa-chevron-down faq-icon"></i>
                 </div>
                 <div class="faq-answer">
-                    Secara *default*, sistem ini terhubung ke *intranet* bank demi keamanan ketat. Namun, karyawan lapangan atau yang sedang WFH dapat menggunakan VPN Perusahaan untuk mengakses portal pengumuman dan pengajuan cuti secara fleksibel.
+                    Data penggajian diproses pada akhir periode dan <em>Slip Gaji</em> digital akan otomatis diterbitkan oleh sistem setiap akhir bulan. Slip ini memuat rincian Gaji Pokok, Tunjangan, Potongan Keterlambatan, serta Bonus Kinerja, dan dapat diunduh dalam format PDF di menu <strong>Payroll</strong>.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Bagaimana Sistem SIMKAB menilai Kinerja bulanan saya?
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    SIMKAB menggunakan algoritma penilaian kinerja yang menghasilkan predikat otomatis (Sangat Baik, Baik, Cukup, Kurang). Nilai akhir dihitung berdasarkan persentase kehadiran (modul Absensi) yang dikombinasikan dengan skor evaluasi atasan pada modul <strong>Penilaian Kinerja</strong>.
                 </div>
             </div>
         </div>
