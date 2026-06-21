@@ -18,13 +18,14 @@ try {
     $pdo = new PDO("mysql:host=localhost;dbname=db_simkab;charset=utf8", "root", "");
     $total_karyawan = $pdo->query("SELECT COUNT(*) FROM karyawan")->fetchColumn() ?: 0;
     $total_divisi = $pdo->query("SELECT COUNT(DISTINCT divisi) FROM karyawan WHERE divisi != ''")->fetchColumn() ?: 0;
-    $total_hadir = $pdo->query("SELECT COUNT(*) FROM absensi WHERE status='Hadir'")->fetchColumn() ?: 0;
-    $total_cuti = $pdo->query("SELECT COUNT(*) FROM cuti WHERE status='Disetujui'")->fetchColumn() ?: 0;
+    $total_pelatihan = $pdo->query("SELECT COUNT(*) FROM pelatihan")->fetchColumn() ?: 0;
+    $avg_kinerja = $pdo->query("SELECT AVG(skor_akhir) FROM kinerja")->fetchColumn() ?: 0;
+    $avg_kinerja_format = number_format($avg_kinerja, 1);
 } catch (Exception $e) {
     $total_karyawan = 0;
     $total_divisi = 0;
-    $total_hadir = 0;
-    $total_cuti = 0;
+    $total_pelatihan = 0;
+    $avg_kinerja_format = '0.0';
 }
 ?>
 <!DOCTYPE html>
@@ -301,21 +302,21 @@ try {
             </div>
 
             <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #f59e0b;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #f59e0b;"><i class="fa-solid fa-graduation-cap"></i></div>
                 <div style="width: 60px; height: 60px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
-                    <i class="fa-solid fa-calendar-check"></i>
+                    <i class="fa-solid fa-certificate"></i>
                 </div>
-                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $total_hadir; ?></div>
-                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Total Rekam Kehadiran</div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $total_pelatihan; ?></div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Program Sertifikasi</div>
             </div>
 
             <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #8b5cf6;"><i class="fa-solid fa-plane-departure"></i></div>
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 100px; opacity: 0.03; color: #8b5cf6;"><i class="fa-solid fa-chart-line"></i></div>
                 <div style="width: 60px; height: 60px; background: rgba(139, 92, 246, 0.1); color: #8b5cf6; font-size: 24px; display: flex; align-items: center; justify-content: center; border-radius: 16px; margin: 0 auto 20px;">
-                    <i class="fa-solid fa-umbrella-beach"></i>
+                    <i class="fa-solid fa-star"></i>
                 </div>
-                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $total_cuti; ?></div>
-                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Cuti Disetujui</div>
+                <div style="font-size: 42px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;"><?php echo $avg_kinerja_format; ?></div>
+                <div style="font-size: 14px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Rata-rata Kinerja</div>
             </div>
             
         </div>
