@@ -250,6 +250,7 @@ try {
             <a href="#fitur">Fitur Utama</a>
             <a href="#tim-pengembang">Tim Pengembang</a>
             <a href="#faq">Pusat Bantuan</a>
+            <a href="#tentang-kami">Tentang Kami</a>
         </div>
         <div class="nav-links">
             <button class="theme-switch-btn" id="theme-btn" style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 18px; padding: 4px;">
@@ -496,7 +497,7 @@ try {
         </div>
     </section>
 
-    <footer class="site-footer" id="footer">
+    <footer class="site-footer" id="tentang-kami">
         <div class="footer-grid">
             <div>
                 <div class="brand-logo footer-brand">
@@ -504,24 +505,20 @@ try {
                         SIMKAB ENTERPRISE
                     </div>
                 </div>
-                <p class="footer-desc">Platform Sistem Informasi Manajemen Karyawan yang dirancang untuk otomatisasi SDM, efisiensi penggajian, dan transparansi data.</p>
+                <p class="footer-desc" style="line-height: 1.6;"><strong>Tentang Aplikasi:</strong><br>Platform Sistem Informasi Manajemen Karyawan (SIMKAB) dirancang khusus untuk memenuhi standar ketat tata kelola SDM industri perbankan. Mengotomatisasi seluruh siklus mulai dari absensi biometrik, manajemen cuti, hingga kalkulasi <em>payroll</em> yang presisi dan transparan.</p>
             </div>
-            <div class="footer-links">
-                <h4>Perusahaan</h4>
-                <ul>
-                    <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Tata Kelola</a></li>
-                    <li><a href="#">Hubungan Investor</a></li>
-                </ul>
+            <div class="footer-info">
+                <h4 style="color: var(--text-primary); font-size: 16px; margin-bottom: 20px;">Informasi Perusahaan</h4>
+                <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Kami adalah pionir pengembang infrastruktur digital korporasi yang berdedikasi menciptakan ekosistem kerja digital. Misi kami adalah memberdayakan departemen HR agar dapat fokus pada pengembangan talenta, sementara sistem kami menangani seluruh beban kerja administratif secara otomatis dan aman.</p>
             </div>
-            <div class="footer-links">
-                <h4>Legalitas</h4>
-                <ul>
-                    <li><a href="#">Kebijakan Privasi</a></li>
-                    <li><a href="#">Syarat Ketentuan</a></li>
-                    <li><a href="#">Keamanan Data</a></li>
-                    <li><a href="#">Sertifikasi ISO</a></li>
-                </ul>
+            <div class="footer-info">
+                <h4 style="color: var(--text-primary); font-size: 16px; margin-bottom: 20px;">Kontak & Lokasi</h4>
+                <p style="color: var(--text-muted); font-size: 14px; line-height: 1.8;">
+                    <i class="fa-solid fa-building" style="width: 20px; color: var(--primary);"></i> Gedung SIMKAB Tower Lt. 12<br>
+                    <span style="padding-left: 24px;">Jl. Jend. Sudirman Kav. 52, Jakarta</span><br>
+                    <i class="fa-solid fa-envelope" style="width: 20px; color: var(--primary); margin-top: 8px;"></i> cs@simkab.co.id<br>
+                    <i class="fa-solid fa-phone" style="width: 20px; color: var(--primary); margin-top: 8px;"></i> (021) 1500-888
+                </p>
             </div>
         </div>
         <div class="footer-bottom">
