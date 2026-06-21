@@ -443,7 +443,7 @@ try {
             <div class="dev-card">
                 <div class="dev-avatar">
                     <span class="dev-initial">N</span>
-                    <img src="assets/img/nikmal.jpeg" alt="Nikmal" onerror="this.style.display='none'">
+                    <img src="assets/img/nikmal.jpeg" alt="Nikmal" style="width: 150%; height: 150%; top: -25%; left: -25%; max-width: none;" onerror="this.style.display='none'">
                 </div>
                 <h3>Nikmal Anakoruo</h3>
                 <p>E1E124047</p>
