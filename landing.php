@@ -170,7 +170,7 @@ try {
             box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08); cursor: default;
         }
         .dev-card:hover { transform: translateY(-10px) scale(1.02); border-color: var(--primary); box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.25); z-index: 10; }
-        .dev-avatar { width: 90px; height: 90px; border-radius: 50%; background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 36px; margin: 0 auto 24px; font-weight: 800; border: 2px solid var(--primary); text-transform: uppercase; overflow: hidden; position: relative; box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3); transition: transform 0.4s; }
+        .dev-avatar { width: 140px; height: 140px; border-radius: 50%; background: var(--primary-glow); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 48px; margin: 0 auto 24px; font-weight: 800; border: 3px solid var(--primary); text-transform: uppercase; overflow: hidden; position: relative; box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3); transition: transform 0.4s; }
         .dev-card:hover .dev-avatar { transform: scale(1.1) rotate(5deg); }
         .dev-avatar img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2; transition: transform 0.4s; }
         .dev-card:hover .dev-avatar img { transform: scale(1.1); }
@@ -407,7 +407,7 @@ try {
             <div class="dev-card leader">
                 <div class="dev-avatar">
                     <span class="dev-initial">D</span>
-                    <img src="assets/img/dev_dirga.jpg" alt="Dirga" onerror="this.style.display='none'">
+                    <img src="assets/img/dirga.jpeg" alt="Dirga" onerror="this.style.display='none'">
                 </div>
                 <div class="dev-badge">Ketua</div>
                 <h3>La Ode Muhamad Dirga</h3>
@@ -424,7 +424,7 @@ try {
             <div class="dev-card">
                 <div class="dev-avatar">
                     <span class="dev-initial">G</span>
-                    <img src="assets/img/dev_gilang.jpg" alt="Gilang" onerror="this.style.display='none'">
+                    <img src="assets/img/gilang.jpeg" alt="Gilang" onerror="this.style.display='none'">
                 </div>
                 <h3>Gilang Syah Fitrah R.</h3>
                 <p>E1E124037</p>
