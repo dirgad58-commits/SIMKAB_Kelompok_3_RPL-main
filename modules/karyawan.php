@@ -13,9 +13,14 @@
         
         <div class="card" style="padding: 30px;">
             <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
-                <div style="width: 150px; height: 150px; border-radius: 50%; background-color: var(--bg-card-solid); display: flex; align-items: center; justify-content: center; font-size: 60px; color: var(--primary); border: 4px solid var(--border-color); overflow: hidden; position: relative; box-shadow: var(--shadow-soft);">
-                    <img id="dashboard-foto-profil" src="" style="width: 100%; height: 100%; object-fit: cover; display: none;">
-                    <i id="dashboard-icon-profil" class="fa-solid fa-user-tie"></i>
+                <div style="position: relative;">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; background-color: var(--bg-card-solid); display: flex; align-items: center; justify-content: center; font-size: 60px; color: var(--primary); border: 4px solid var(--border-color); overflow: hidden; position: relative; box-shadow: var(--shadow-soft);">
+                        <img id="dashboard-foto-profil" src="" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                        <i id="dashboard-icon-profil" class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <button onclick="document.getElementById('input-foto-profil').click()" class="btn-upload-foto" style="position: absolute; bottom: 0; right: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: white; border: 3px solid var(--bg-card-solid); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s;" title="Upload Foto Baru">
+                        <i class="fa-solid fa-camera"></i>
+                    </button>
                 </div>
                 <div style="flex: 1; min-width: 300px;">
                     <h2 id="dashboard-nama" style="font-size: 28px; font-weight: 800; margin-bottom: 5px; color: var(--text-primary);">Memuat...</h2>
