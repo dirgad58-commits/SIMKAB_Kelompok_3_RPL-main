@@ -1420,7 +1420,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tableBody.innerHTML = '';
 
         // Tampilkan 15 logs absensi terbaru
-        const latestLogs = [...list].reverse().slice(0, 15);
+        const latestLogs = [...list].slice(0, 15);
 
         if (latestLogs.length === 0) {
             tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center; color: var(--text-secondary);">Tidak ada riwayat absensi.</td></tr>';
