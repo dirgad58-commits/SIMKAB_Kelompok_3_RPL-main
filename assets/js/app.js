@@ -2228,7 +2228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '';
 
         // Tampilkan pengumuman terbaru di atas
-        const latestAnnouncements = [...list].reverse();
+        const latestAnnouncements = [...list];
 
         const filtered = latestAnnouncements.filter(p => {
             return p.judul.toLowerCase().includes(search) || p.konten.toLowerCase().includes(search) || p.kategori.toLowerCase().includes(search);
