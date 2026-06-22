@@ -253,44 +253,47 @@ try {
         case 'upload_foto':
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['foto'])) {
                 if (strtolower(trim($user_role)) !== 'karyawan') {
-                    echo json_encode(["status" => "error", "message" => "Hanya Karyawan yang dapat mengubah foto profil sendiri."]);
-                    exit;
-                }
-                
-                $fileTmpName = $_FILES['foto']['tmp_name'];
-                $fileName = $_FILES['foto']['name'];
-                $fileSize = $_FILES['foto']['size'];
-                $fileError = $_FILES['foto']['error'];
-                
-                $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-                $allowed = ['jpg', 'jpeg', 'png'];
-                
-                if (in_array($fileExt, $allowed)) {
-                    if ($fileError === 0) {
-                        if ($fileSize < 5000000) { // 5MB limit
-                            $newFileName = "profile_" . $id_karyawan_session . "_" . time() . "." . $fileExt;
-                            $fileDestination = 'uploads/' . $newFileName;
-                            
-                            if (move_uploaded_file($fileTmpName, $fileDestination)) {
-                                // Update DB
-                                $stmt = $pdo->prepare("UPDATE karyawan SET foto = ? WHERE id = ?");
-                                $stmt->execute([$fileDestination, $id_karyawan_session]);
+                    $response = ["status" => "error", "message" => "Hanya Karyawan yang dapat mengubah foto profil sendiri."];
+                } else {
+                    $fileTmpName = $_FILES['foto']['tmp_name'];
+                    $fileName = $_FILES['foto']['name'];
+                    $fileSize = $_FILES['foto']['size'];
+                    $fileError = $_FILES['foto']['error'];
+                    
+                    $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+                    $allowed = ['jpg', 'jpeg', 'png'];
+                    
+                    if (!is_dir('assets/img/profil/')) {
+                        mkdir('assets/img/profil/', 0777, true);
+                    }
+                    
+                    if (in_array($fileExt, $allowed)) {
+                        if ($fileError === 0) {
+                            if ($fileSize < 10000000) { // 10MB limit
+                                $newFileName = "profile_" . $id_karyawan_session . "_" . time() . "." . $fileExt;
+                                $fileDestination = 'assets/img/profil/' . $newFileName;
                                 
-                                echo json_encode(["status" => "success", "message" => "Foto profil berhasil diperbarui", "path" => $fileDestination]);
+                                if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                                    // Update DB
+                                    $stmt = $pdo->prepare("UPDATE karyawan SET foto = ? WHERE id = ?");
+                                    $stmt->execute([$fileDestination, $id_karyawan_session]);
+                                    
+                                    $response = ["status" => "success", "message" => "Foto profil berhasil diperbarui", "path" => $fileDestination];
+                                } else {
+                                    $response = ["status" => "error", "message" => "Gagal menyimpan file."];
+                                }
                             } else {
-                                echo json_encode(["status" => "error", "message" => "Gagal menyimpan file."]);
+                                $response = ["status" => "error", "message" => "File terlalu besar (Maks 10MB)."];
                             }
                         } else {
-                            echo json_encode(["status" => "error", "message" => "File terlalu besar (Maks 5MB)."]);
+                            $response = ["status" => "error", "message" => "Terjadi kesalahan upload file."];
                         }
                     } else {
-                        echo json_encode(["status" => "error", "message" => "Terjadi kesalahan upload file."]);
+                        $response = ["status" => "error", "message" => "Hanya file JPG dan PNG yang diizinkan."];
                     }
-                } else {
-                    echo json_encode(["status" => "error", "message" => "Hanya file JPG dan PNG yang diizinkan."]);
                 }
             } else {
-                echo json_encode(["status" => "error", "message" => "Permintaan tidak valid."]);
+                $response = ["status" => "error", "message" => "Permintaan tidak valid."];
             }
             break;
 
@@ -1058,6 +1061,7 @@ try {
                 ];
             }
             break;
+
     }
 } catch (Exception $e) {
     if ($pdo->inTransaction()) {

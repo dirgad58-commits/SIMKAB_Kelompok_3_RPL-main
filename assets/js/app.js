@@ -27,6 +27,8 @@ window.SIMKABData = {
     getPengumuman() { return this.pengumuman; }
 };
 
+window.userRole = (window.USER_ROLE || '').toLowerCase().trim();
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================================================
@@ -2069,7 +2071,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     closeModal('modal-pelatihan');
                     formPelatihan.reset();
                     // Refetch data
-                    await refreshSIMKABData();
+                    await refreshAllData();
                     renderPelatihanTable();
                     alert(res.message);
                 } else {
