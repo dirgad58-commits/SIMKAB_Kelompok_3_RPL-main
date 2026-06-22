@@ -1973,7 +1973,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     try {
                         const res = await fetch(`api.php?action=delete_pelatihan&id=${id}`).then(r => r.json());
                         if (res.status === 'success') {
-                            await refreshSIMKABData();
+                            await refreshAllData();
                             renderPelatihanTable();
                         } else {
                             alert(res.message);
@@ -1993,7 +1993,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     try {
                         const res = await fetch(`api.php?action=approve_pelatihan&id=${id}`).then(r => r.json());
                         if (res.status === 'success') {
-                            await refreshSIMKABData();
+                            await refreshAllData();
                             renderPelatihanTable();
                         } else alert(res.message);
                     } catch(err) { console.error(err); }
@@ -2009,7 +2009,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     try {
                         const res = await fetch(`api.php?action=reject_pelatihan&id=${id}`).then(r => r.json());
                         if (res.status === 'success') {
-                            await refreshSIMKABData();
+                            await refreshAllData();
                             renderPelatihanTable();
                         } else alert(res.message);
                     } catch(err) { console.error(err); }
